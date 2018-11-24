@@ -1,0 +1,27 @@
+{
+  "name": "kevingarubba.com",
+  "version": "1.0.0",
+  "description": "My personal website used for portfolio and personal brand building.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/K-JAX/kevingarubba.com.git"
+  },
+  "keywords": [
+    "Portfolio",
+    "Branding",
+    "Business"
+  ],
+  "author": "Kevin Garubba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/K-JAX/kevingarubba.com/issues"
+  },
+  "homepage": "https://github.com/K-JAX/kevingarubba.com#readme",
+  "dependencies": {
+    "logrocket": "^0.6.17"
+  }
+}
