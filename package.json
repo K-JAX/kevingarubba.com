@@ -1,27 +1,25 @@
 {
-  "name": "kevingarubba.com",
+  "name": "svelte-app",
   "version": "1.0.0",
-  "description": "My personal website used for portfolio and personal brand building.",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "dev": "rollup -c -w -s",
+    "start": "sirv public -s"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/K-JAX/kevingarubba.com.git"
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.0.0",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "node-sass": "^4.13.1",
+    "rollup": "^1.20.0",
+    "rollup-plugin-livereload": "^1.0.0",
+    "rollup-plugin-svelte": "^5.0.3",
+    "rollup-plugin-terser": "^5.1.2",
+    "svelte": "^3.0.0",
+    "svelte-preprocess": "^3.6.0",
+    "svelte-routing": "^1.4.2"
   },
-  "keywords": [
-    "Portfolio",
-    "Branding",
-    "Business"
-  ],
-  "author": "Kevin Garubba",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/K-JAX/kevingarubba.com/issues"
-  },
-  "homepage": "https://github.com/K-JAX/kevingarubba.com#readme",
   "dependencies": {
-    "logrocket": "^0.6.17"
+    "postcss": "^7.0.27",
+    "sirv-cli": "^0.4.4"
   }
 }
