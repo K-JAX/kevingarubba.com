@@ -5,7 +5,7 @@
     
 </script>
 
-<header>
+<header class="flex">
     <Logo />
     <Nav />
     <Burger />

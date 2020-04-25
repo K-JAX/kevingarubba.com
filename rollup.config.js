@@ -4,6 +4,8 @@ import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
+import replace from '@rollup/plugin-replace';
+
 const production = !process.env.ROLLUP_WATCH;
 
 const preprocess = sveltePreprocess({
@@ -26,6 +28,7 @@ export default {
 			dev: !production,
 			// we'll extract any component CSS out into
 			// a separate file - better for performance
+
 			preprocess,
 			css: css => {
 				css.write('public/build/bundle.css');
@@ -53,7 +56,19 @@ export default {
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
-		production && terser()
+		production && terser(),
+
+		replace({
+			FOO: JSON.stringify('whatthefuck'),
+	  
+			// 2 level deep object should be stringify
+			process: JSON.stringify({
+			  env: {
+				isProd: production,
+			  }
+			}),
+		})
+		
 	],
 	watch: {
 		clearScreen: false

@@ -2,6 +2,7 @@
 	import { Router, Route } from 'svelte-routing';
 
     import Header from './Organisms/Header.svelte';
+    import Footer from './Molecules/Footer.svelte';
 	import Home from "./Templates/Home.svelte";
 	import About from "./Templates/About.svelte";
     import Blog from "./Templates/Blog.svelte";
@@ -19,3 +20,4 @@
         <Route path="/"><Home /></Route>
     </div>
 </Router>
+<Footer />
