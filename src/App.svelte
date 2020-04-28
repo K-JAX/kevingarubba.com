@@ -1,14 +1,16 @@
 <script>
+	// Modules
+	import { fade } from 'svelte/transition';
+
+	// Components
 	import Page from "./Components/Design/Page.svelte";
-	const mssg = process.env.isProd ? 'This is production mode' : FOO;
-	
+	// import SiteLoadCookie from "./Components/Functional/SiteLoadCookie.svelte"
+
+	import {durVal} from "./Components/Functional/SiteLoadCookie.svelte"
+
 </script>
 
-<svelte:head>
-	<title>A whole new title</title>
-</svelte:head>
-
-<main>
+<main transition:fade="{{duration: durVal}}">
 	<Page />
 </main>
 

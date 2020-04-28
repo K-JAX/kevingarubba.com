@@ -1,11 +1,21 @@
 <script>
-    let active = false;
+    import { onMount } from 'svelte';
+    let active = '';
+    let ready = false;
     let addActive = () => {
-        active = active === false ? true : false;
+        if( ready == true ){
+            active = active === 'active' ? 'closed' : 'active';
+        }
     }
+    onMount(async () => {
+        setTimeout(function(){
+            ready = true;
+
+        }, 1000)
+    })
 </script>
 
-<button class={`burger ${active ? 'active' : 'closed'}`} on:click={addActive}>
+<button class={`burger ${ready ? 'ready' : ''} ${active}`} on:click={addActive}>
     <div class="burger-icon">
         <div class="burger-container">
             <span class="bun-top"></span>
@@ -39,13 +49,12 @@
     $color: #000;
     $animation: 0.5s;
 
-
-
     .burger{
         position: relative;
         display: flex;
         width: 68px;
         height: 68px;
+        margin-top: -400px;
         margin: 40px auto;
         padding: 0.5em;
         transition: 0.25s;
@@ -167,14 +176,39 @@
             }
         }
 
+
         .burger-icon {
             position: absolute;
             padding: 20px 16px;
             height: 68px;
             width: 68px;
             top: 0;
-            left: 0;
+            left: 200px;
+            transition: 0.25s left, 0.25s 0.15s transform;
         }
+        &.ready .burger-icon{
+            animation: flyIn 0.45s forwards;
+        }
+
+        @keyframes flyIn {
+            0%{
+                left: 100%;
+                transform: skew(-25deg) rotate(2deg) translateZ(0);
+            }
+            75%{
+                left: -5px;
+                transform: skew(5deg) rotate(-4deg) translateZ(0);
+            }
+            88%{
+                left: 1px;
+                transform: skew(-8deg) rotate(1deg) translateZ(0);
+            }
+            100%{
+                left: 0;
+                transform: skew(0deg) translateZ(0);
+
+            }
+        }        
 
         .burger-container{
             position: relative;

@@ -5,6 +5,7 @@ import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
 import replace from '@rollup/plugin-replace';
+import sapperEnv from 'sapper-environment';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -59,7 +60,7 @@ export default {
 		production && terser(),
 
 		replace({
-			FOO: JSON.stringify('whatthefuck'),
+			...sapperEnv(),
 	  
 			// 2 level deep object should be stringify
 			process: JSON.stringify({
