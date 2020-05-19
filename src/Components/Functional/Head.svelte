@@ -1,5 +1,5 @@
 <script>
-    import { onMount, afterUpdate } from 'svelte';
+    import { onMount, afterUpdate, tick } from 'svelte';
 
     export let pageTagData = {}
     let fav = '',
@@ -20,29 +20,36 @@
         ]);
         favJson = await favResponse.json();
         siteJson = await siteResponse.json();
+        tick();
         fav = favJson.url
         siteTitle = siteJson.name + ' '  + siteJson.description
 
         // Check if there's yoast data then and assign with what exists
         if(pageTagData.yoast_title == undefined){
-            // console.log(siteTitle)
-            pageTagData.yoast_title = siteTitle != '' ? siteTitle : 'kevingarubba.com'
+            pageTagData.yoast_title = pageTagData.title != undefined ? pageTagData.title.rendered : siteTitle
         }
         if(pageTagData.yoast_meta == undefined ){
             pageTagData.yoast_meta = [{ name: "description", content: "Welcome to Kevin Garubba Design & Development site, where I showcase my latest portfolio pieces in web design and mobile application development."}]
         }
         title = pageTagData.yoast_title;
         meta = pageTagData.yoast_meta;
-        stateStore = siteJson.name;
+
+        if( pageTagData.title !== undefined){
+            stateStore = pageTagData.title.rendered;
+
+        }
     }
 
     onMount(async () => {
-        getJsonResponse();
+        await getJsonResponse();
     })
 
     afterUpdate(async () => {
-        if( stateStore != siteJson.name){
-            getJsonResponse();
+        if(pageTagData.title !== undefined){
+            if( stateStore != pageTagData.title.rendered){
+                await getJsonResponse();
+    
+            }
 
         }
     });
@@ -51,11 +58,17 @@
 <svelte:head>
 	<title>{title}</title>
     <link rel="icon" href={fav} />
-        {#each meta as {name, property, content}}
-            {#if name != undefined || name != null || name != '' }
-                <meta name={name} content={content} />
-            {:else if property != undefined || property != null || property != '' }
-                <meta name={property} content={content} />
-            {/if}
-        {/each}
+
+    <!-- Site Meta -->
+    {#each meta as {name, property, content}}
+        {#if name != undefined || name != null || name != '' }
+            <meta name={name} content={content} />
+        {:else if property != undefined || property != null || property != '' }
+            <meta name={property} content={content} />
+        {/if}
+    {/each}
+
+    <!-- Externals -->
+    <script src="https://kit.fontawesome.com/e8a9e75530.js" crossorigin="anonymous"></script>
+    
 </svelte:head>

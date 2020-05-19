@@ -9,7 +9,9 @@ h1 { @apply text-5xl; }
 h2 { @apply text-xl; }
 h3 { @apply text-lg; }
 a {
-    @apply text-agua underline;
+    @apply text-blue underline;
 }
+
+
 
 /* button{ @apply text-white bg-topaz; } */

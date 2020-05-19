@@ -1,24 +1,22 @@
 <script context="module">
-
-
     function setCookie(cname, cvalue, exdays) {
         var d = new Date();
-        d.setTime(d.getTime() + (exdays*24*60*60*1000));
-        var expires = "expires="+ d.toUTCString();
+        d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+        var expires = "expires=" + d.toUTCString();
         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
 
     function getCookie(cname) {
         var name = cname + "=";
         var decodedCookie = decodeURIComponent(document.cookie);
-        var ca = decodedCookie.split(';');
-        for(var i = 0; i <ca.length; i++) {
+        var ca = decodedCookie.split(";");
+        for (var i = 0; i < ca.length; i++) {
             var c = ca[i];
-            while (c.charAt(0) == ' ') {
-            c = c.substring(1);
+            while (c.charAt(0) == " ") {
+                c = c.substring(1);
             }
             if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
+                return c.substring(name.length, c.length);
             }
         }
         return "";
@@ -29,18 +27,16 @@
         var durVal;
         if (visited != "") {
             // alert("Welcome again " + visited);
-            durVal = 1000;
+            durVal = 2000;
         } else {
-            visited = 'visited';
+            visited = "visited";
             if (visited != "" && visited != null) {
                 setCookie("siteload", visited, 1);
             }
             durVal = 3500;
         }
-        // console.log(durVal)
         return durVal;
     }
 
     export const durVal = checkCookie();
-
 </script>

@@ -1,7 +1,9 @@
 <script>
     // Modules
     import { fade } from 'svelte/transition';
-	import { onMount, afterUpdate } from 'svelte';
+    import { onMount, afterUpdate } from 'svelte';
+    import queryString from 'query-string';
+
 
     // Components
     import PageTitle from '../Atoms/PageTitle.svelte';
@@ -10,10 +12,14 @@
 
     let data = [];
     let pageData = [];
-    let title = ''
+    let title = '';
+    let content = '';
     let metaFields = [];
     let isLoaded = false;
     let storedState = '';
+    let successMessage = '';
+    let error = '';
+    let loading = false;
     export let slug;
 	
 	const apiURL = process.env.SAPPER_APP_API_URL;
@@ -24,9 +30,8 @@
         data = json
         if (data[0] !== undefined){
             pageData = data[0];
-            title = data[0].yoast_title
-            metaFields = data[0].yoast_meta
-
+            title = pageData.title.rendered;
+            content = pageData.content.rendered;
         }
         storedState = slug;
     }
@@ -46,8 +51,8 @@
 {#if data != ''}
 <Head pageTagData={pageData} />
 <section in:fade>
-    <PageTitle title="{title}" />
-    <p >{slug}</p>
+    <PageTitle className="my-5" title={title} />
+    {@html content}
 </section>
 {:else}
 <NotFound />

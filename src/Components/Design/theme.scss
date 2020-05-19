@@ -1,25 +1,126 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&family=Fira+Code&display=swap");
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
-html, body{
+html,
+body {
     font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    overflow-x: hidden;
 }
 
-*{
+* {
     box-sizing: border-box;
 }
 
-// h1, .h1{ font-size: 2.5em;   }
-// h2, .h2{ font-size: 2.25em;  }
-// h3, .h3{ font-size: 2.0em;   }
-// h4, .h4{ font-size: 1.75em;  }
-// h5, .h5{ font-size: 1.5em;   }
-// h6, .h6{ font-size: 1.25em;  }
+code{
+    font-family: 'Fira Code', monospace !important;
+}
 
-.thin{ font-weight: 100; }
-.light{ font-weight: 300; }
-.regular{ font-weight: 400; }
-.medium{ font-weight: 500; }
-.bold{ font-weight: 700; }
-.black{ font-weight: 900; }
+// pseudos
+.before:before {
+    content: "";
+}
+
+.after:after {
+    content: "";
+}
+
+.beforeafter {
+    &:before,
+    &:after {
+        content: "";
+    }
+}
 
 
+
+// form elements
+
+label{
+    text-transform: uppercase;    
+    font-weight: 700;
+    font-size: 0.9em;
+}
+
+input, textarea{
+    border-bottom: 1px solid black;
+    font-size: 1.5em !important;
+}
+
+input{
+    padding-top: 0.55em !important;
+    padding-bottom: 0.55em !important;
+}
+
+label{
+    textarea{
+        border-top: 1px solid #ccc;
+        border-left: 1px solid #aaa;
+        border-right: 1px solid #aaa;
+        resize: none;
+    }
+}
+
+.wpcf7-submit{
+    cursor: pointer;
+    transition: 0.125s;
+    &:after{
+        content: "\f0a9";
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        margin-left: 1.25em;
+    }
+    &.loading{
+        cursor: not-allowed;
+        color: #aaa;
+        background-color: #ccc;
+        background-image: none !important;
+    }
+    &.sent{
+        cursor: not-allowed;
+        color: #b3fbb0;
+        &:after{
+            content: "\f00c";
+        }
+    }
+}
+
+.wpcf7-response-output{
+    margin: 1.1em 0;
+    transform: rotateX(0deg);
+    transition: 0.25s;
+    span{
+        position: relative;
+        padding: 0.75em 1.25em;
+        border-radius: 200px;
+        color: white;
+        transition: 0.5s;
+
+    }
+    &.wpcf7-display-none{
+        transform: rotateX(90deg);
+    }
+    &.error-message span{
+        background-color: #ff6756;
+    }
+    &.success-message span{
+        background-color: #57c853;
+        &:before{
+            content: '';
+            position: absolute;
+            background-color: transparent;
+            border-bottom: 10px solid #57c853;
+            border-top: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            top: -0.75em;
+            left: 2em;
+            width: 0;
+            height: 0;
+        }
+    }
+}
+.required-field{
+    color: #ff6756;
+}

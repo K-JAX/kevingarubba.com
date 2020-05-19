@@ -4,16 +4,24 @@
 
 	// Components
 	import Page from "./Components/Design/Page.svelte";
-	// import SiteLoadCookie from "./Components/Functional/SiteLoadCookie.svelte"
 
 	import {durVal} from "./Components/Functional/SiteLoadCookie.svelte"
 
+	AOS.init();
+
 </script>
 
-<main transition:fade="{{duration: durVal}}">
+
+<div class="svelte-root flex flex-row" transition:fade="{{duration: durVal}}">
 	<Page />
-</main>
+</div>
 
 <style lang="scss" global>
 	@import "./Components/Design/theme.scss";
+
+	.svelte-root{
+		min-height: 100vh;
+
+	}
+	
 </style>

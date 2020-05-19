@@ -38,3 +38,133 @@
 [27-Apr-2020 14:38:57] NOTICE: ready to handle connections
 [27-Apr-2020 23:49:38] NOTICE: Terminating ...
 [27-Apr-2020 23:49:38] NOTICE: exiting, bye-bye!
+[28-Apr-2020 14:00:21] NOTICE: fpm is running, pid 25976
+[28-Apr-2020 14:00:21] NOTICE: ready to handle connections
+[28-Apr-2020 23:50:35] NOTICE: Terminating ...
+[28-Apr-2020 23:50:35] NOTICE: exiting, bye-bye!
+[29-Apr-2020 11:31:42] NOTICE: fpm is running, pid 21748
+[29-Apr-2020 11:31:42] NOTICE: ready to handle connections
+[29-Apr-2020 21:59:45] NOTICE: Terminating ...
+[29-Apr-2020 21:59:45] NOTICE: exiting, bye-bye!
+[30-Apr-2020 19:52:57] NOTICE: fpm is running, pid 9524
+[30-Apr-2020 19:52:57] NOTICE: ready to handle connections
+[30-Apr-2020 21:55:24] NOTICE: Terminating ...
+[30-Apr-2020 21:55:24] NOTICE: exiting, bye-bye!
+[01-May-2020 12:30:40] NOTICE: fpm is running, pid 23208
+[01-May-2020 12:30:40] NOTICE: ready to handle connections
+[01-May-2020 14:49:56] NOTICE: Terminating ...
+[01-May-2020 14:49:56] NOTICE: exiting, bye-bye!
+[01-May-2020 20:15:10] NOTICE: fpm is running, pid 12181
+[01-May-2020 20:15:10] NOTICE: ready to handle connections
+[01-May-2020 21:55:44] NOTICE: Terminating ...
+[01-May-2020 21:55:44] NOTICE: exiting, bye-bye!
+[02-May-2020 12:56:42] NOTICE: fpm is running, pid 24923
+[02-May-2020 12:56:42] NOTICE: ready to handle connections
+[02-May-2020 21:59:30] NOTICE: Terminating ...
+[02-May-2020 21:59:30] NOTICE: exiting, bye-bye!
+[03-May-2020 11:29:20] NOTICE: fpm is running, pid 31627
+[03-May-2020 11:29:20] NOTICE: ready to handle connections
+[03-May-2020 18:48:02] NOTICE: Terminating ...
+[03-May-2020 18:48:02] NOTICE: exiting, bye-bye!
+[03-May-2020 18:49:50] NOTICE: fpm is running, pid 6548
+[03-May-2020 18:49:50] NOTICE: ready to handle connections
+[03-May-2020 21:53:35] NOTICE: Terminating ...
+[03-May-2020 21:53:35] NOTICE: exiting, bye-bye!
+[04-May-2020 20:51:43] NOTICE: fpm is running, pid 17344
+[04-May-2020 20:51:43] NOTICE: ready to handle connections
+[04-May-2020 21:54:16] NOTICE: Terminating ...
+[04-May-2020 21:54:16] NOTICE: exiting, bye-bye!
+[05-May-2020 10:52:31] NOTICE: fpm is running, pid 21259
+[05-May-2020 10:52:31] NOTICE: ready to handle connections
+[05-May-2020 14:31:53] NOTICE: Terminating ...
+[05-May-2020 14:31:53] NOTICE: exiting, bye-bye!
+[05-May-2020 20:14:59] NOTICE: fpm is running, pid 12053
+[05-May-2020 20:14:59] NOTICE: ready to handle connections
+[05-May-2020 21:59:50] NOTICE: Terminating ...
+[05-May-2020 21:59:50] NOTICE: exiting, bye-bye!
+[06-May-2020 11:12:26] NOTICE: fpm is running, pid 19843
+[06-May-2020 11:12:26] NOTICE: ready to handle connections
+[06-May-2020 14:32:32] NOTICE: Terminating ...
+[06-May-2020 14:32:32] NOTICE: exiting, bye-bye!
+[06-May-2020 22:13:45] NOTICE: fpm is running, pid 18286
+[06-May-2020 22:13:45] NOTICE: ready to handle connections
+[06-May-2020 23:18:09] ERROR: Another FPM instance seems to already listen on /home/kevin/.config/Local/run/R7J_q6x-q/php-fpm.sock
+[06-May-2020 23:18:09] ERROR: FPM initialization failed
+[06-May-2020 23:18:10] ERROR: Another FPM instance seems to already listen on /home/kevin/.config/Local/run/R7J_q6x-q/php-fpm.sock
+[06-May-2020 23:18:10] ERROR: FPM initialization failed
+[06-May-2020 23:18:10] ERROR: Another FPM instance seems to already listen on /home/kevin/.config/Local/run/R7J_q6x-q/php-fpm.sock
+[06-May-2020 23:18:10] ERROR: FPM initialization failed
+[06-May-2020 23:18:11] ERROR: Another FPM instance seems to already listen on /home/kevin/.config/Local/run/R7J_q6x-q/php-fpm.sock
+[06-May-2020 23:18:11] ERROR: FPM initialization failed
+[06-May-2020 23:52:23] ERROR: Another FPM instance seems to already listen on /home/kevin/.config/Local/run/R7J_q6x-q/php-fpm.sock
+[06-May-2020 23:52:23] ERROR: FPM initialization failed
+[06-May-2020 23:52:24] ERROR: Another FPM instance seems to already listen on /home/kevin/.config/Local/run/R7J_q6x-q/php-fpm.sock
+[06-May-2020 23:52:24] ERROR: FPM initialization failed
+[06-May-2020 23:52:25] ERROR: Another FPM instance seems to already listen on /home/kevin/.config/Local/run/R7J_q6x-q/php-fpm.sock
+[06-May-2020 23:52:25] ERROR: FPM initialization failed
+[06-May-2020 23:52:25] ERROR: Another FPM instance seems to already listen on /home/kevin/.config/Local/run/R7J_q6x-q/php-fpm.sock
+[06-May-2020 23:52:25] ERROR: FPM initialization failed
+[07-May-2020 14:30:15] NOTICE: Terminating ...
+[07-May-2020 14:30:15] NOTICE: exiting, bye-bye!
+[07-May-2020 18:03:22] NOTICE: fpm is running, pid 9001
+[07-May-2020 18:03:22] NOTICE: ready to handle connections
+[07-May-2020 22:23:47] NOTICE: Terminating ...
+[07-May-2020 22:23:47] NOTICE: exiting, bye-bye!
+[08-May-2020 13:46:40] NOTICE: fpm is running, pid 20291
+[08-May-2020 13:46:40] NOTICE: ready to handle connections
+[08-May-2020 14:51:58] NOTICE: Terminating ...
+[08-May-2020 14:51:58] NOTICE: exiting, bye-bye!
+[08-May-2020 18:54:11] NOTICE: fpm is running, pid 10232
+[08-May-2020 18:54:11] NOTICE: ready to handle connections
+[08-May-2020 22:40:13] NOTICE: Terminating ...
+[08-May-2020 22:40:13] NOTICE: exiting, bye-bye!
+[09-May-2020 13:32:14] NOTICE: fpm is running, pid 20296
+[09-May-2020 13:32:14] NOTICE: ready to handle connections
+[09-May-2020 22:11:24] NOTICE: Terminating ...
+[09-May-2020 22:11:24] NOTICE: exiting, bye-bye!
+[10-May-2020 18:57:25] NOTICE: fpm is running, pid 6241
+[10-May-2020 18:57:25] NOTICE: ready to handle connections
+[10-May-2020 22:45:21] NOTICE: Terminating ...
+[10-May-2020 22:45:21] NOTICE: exiting, bye-bye!
+[11-May-2020 13:47:28] NOTICE: fpm is running, pid 19894
+[11-May-2020 13:47:28] NOTICE: ready to handle connections
+[11-May-2020 22:35:53] NOTICE: Terminating ...
+[11-May-2020 22:35:53] NOTICE: exiting, bye-bye!
+[12-May-2020 08:54:18] NOTICE: fpm is running, pid 12872
+[12-May-2020 08:54:18] NOTICE: ready to handle connections
+[12-May-2020 21:58:43] NOTICE: Terminating ...
+[12-May-2020 21:58:43] NOTICE: exiting, bye-bye!
+[13-May-2020 12:40:29] NOTICE: fpm is running, pid 24563
+[13-May-2020 12:40:29] NOTICE: ready to handle connections
+[13-May-2020 21:52:21] NOTICE: Terminating ...
+[13-May-2020 21:52:21] NOTICE: exiting, bye-bye!
+[14-May-2020 12:48:42] NOTICE: fpm is running, pid 29900
+[14-May-2020 12:48:42] NOTICE: ready to handle connections
+[14-May-2020 14:17:10] NOTICE: Terminating ...
+[14-May-2020 14:17:10] NOTICE: exiting, bye-bye!
+[15-May-2020 19:51:51] NOTICE: fpm is running, pid 9538
+[15-May-2020 19:51:51] NOTICE: ready to handle connections
+[15-May-2020 19:55:31] NOTICE: Terminating ...
+[15-May-2020 19:55:31] NOTICE: exiting, bye-bye!
+[16-May-2020 13:13:39] NOTICE: fpm is running, pid 12382
+[16-May-2020 13:13:39] NOTICE: ready to handle connections
+[16-May-2020 23:01:51] NOTICE: Terminating ...
+[16-May-2020 23:01:51] NOTICE: exiting, bye-bye!
+[17-May-2020 11:49:24] NOTICE: fpm is running, pid 18839
+[17-May-2020 11:49:24] NOTICE: ready to handle connections
+[17-May-2020 22:43:14] NOTICE: Terminating ...
+[17-May-2020 22:43:14] NOTICE: exiting, bye-bye!
+[18-May-2020 13:30:17] NOTICE: fpm is running, pid 26379
+[18-May-2020 13:30:17] NOTICE: ready to handle connections
+[18-May-2020 14:48:48] NOTICE: Terminating ...
+[18-May-2020 14:48:48] NOTICE: exiting, bye-bye!
+[18-May-2020 20:12:02] NOTICE: fpm is running, pid 10804
+[18-May-2020 20:12:02] NOTICE: ready to handle connections
+[19-May-2020 13:05:39] ERROR: Another FPM instance seems to already listen on /home/kevin/.config/Local/run/R7J_q6x-q/php-fpm.sock
+[19-May-2020 13:05:39] ERROR: FPM initialization failed
+[19-May-2020 13:05:40] ERROR: Another FPM instance seems to already listen on /home/kevin/.config/Local/run/R7J_q6x-q/php-fpm.sock
+[19-May-2020 13:05:40] ERROR: FPM initialization failed
+[19-May-2020 13:05:40] ERROR: Another FPM instance seems to already listen on /home/kevin/.config/Local/run/R7J_q6x-q/php-fpm.sock
+[19-May-2020 13:05:40] ERROR: FPM initialization failed
+[19-May-2020 13:05:41] ERROR: Another FPM instance seems to already listen on /home/kevin/.config/Local/run/R7J_q6x-q/php-fpm.sock
+[19-May-2020 13:05:41] ERROR: FPM initialization failed

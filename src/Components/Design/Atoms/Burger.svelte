@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-    let active = '';
+    export let active = '';
     let ready = false;
     let addActive = () => {
         if( ready == true ){
@@ -15,7 +15,7 @@
     })
 </script>
 
-<button class={`burger ${ready ? 'ready' : ''} ${active}`} on:click={addActive}>
+<button class={`burger mt-4 md:mt-0 ${ready ? 'ready' : ''} ${active}`} on:click={addActive}>
     <div class="burger-icon">
         <div class="burger-container">
             <span class="bun-top"></span>
@@ -51,11 +51,8 @@
 
     .burger{
         position: relative;
-        display: flex;
         width: 68px;
         height: 68px;
-        margin-top: -400px;
-        margin: 40px auto;
         padding: 0.5em;
         transition: 0.25s;
         overflow: hidden;
