@@ -5,12 +5,14 @@
     import Copyright from "../Atoms/Copyright.svelte";
     import Nav from "../Molecules/Nav.svelte";
 
-    let active;
+    export let template = '';
     
+    let active;
+
 </script>
 
 <footer class={`site-footer grid fixed text-center`}>
-    <Burger bind:active />
+    <Burger template={template} bind:active />
     <Copyright />
 </footer>
 <Nav bind:active className="{active}" />

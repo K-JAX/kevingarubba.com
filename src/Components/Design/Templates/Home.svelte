@@ -27,7 +27,6 @@
             pageData = page[0]
         }
         featuredPosts = posts.filter( post => post.acf.feature_project == true )
-        // console.log(pageData.title.rendered);
     })
     
 

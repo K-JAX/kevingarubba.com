@@ -2,9 +2,10 @@
     export let title = '', className = '', style = '';
 </script>
 
-<h1 class={`${className} text-base font-bold tracking-widest uppercase before`} style={`${style}`}>{title}</h1>
+<h1 class={`${className} text-base font-bold tracking-widest uppercase before`} style={`${style}`}><span>{@html title}</span></h1>
 
 <style>
+
 h1:before{
     position: relative;
     display: inline-block;
@@ -13,7 +14,8 @@ h1:before{
     background-color: black;
     top: 0;
     bottom: 0;
-    margin-bottom: 0.25em;
-    margin-right: 0.5em;
+    margin-top: 0.7em;
+    margin-bottom: 00em;
+    margin-right: 20px;
 }
 </style>

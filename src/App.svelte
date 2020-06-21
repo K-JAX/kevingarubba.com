@@ -7,8 +7,6 @@
 
 	import {durVal} from "./Components/Functional/SiteLoadCookie.svelte"
 
-	AOS.init();
-
 </script>
 
 

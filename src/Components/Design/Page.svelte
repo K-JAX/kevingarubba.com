@@ -15,17 +15,16 @@
     import NotFound from "./Templates/NotFound.svelte";
     import FormDefault from "../Functional/FormDefault.svelte"
     export let url = "";
-
-    
+    let template;
 </script>
 
 <Header />
 <FormDefault />
 <Sidebar />
-<main transition:fly={{y: 50, duration: 2000}} class="site-main container mx-auto md:mt-24 mt-48 pl-20 md:pl-20 pr-16">
+<main transition:fly={{y: 50, duration: 2000}} class={`site-main container mx-auto md:mt-24 mt-48 pl-3 pr-16`}>
     <Router url="{url}">
-            <Route path="projects/:slug" key="add-client" exact let:params><ProjectSingle slug="{params.slug}" /></Route>
-            <Route path="projects" component="{Projects}" />
+            <Route path="projects/:slug" key="add-client" exact let:params><ProjectSingle bind:template slug="{params.slug}" /></Route>
+            <Route path="projects" component={Projects}/>
             <Route path="about"><About /></Route>
             <Route path="/" exact ><Home /></Route>
             <Route path="/:slug" key="add-client" exact let:params><Default slug="{params.slug}" /></Route>
@@ -33,7 +32,7 @@
             <Route component={NotFound} />
     </Router>
 </main>
-<Footer />
+<Footer template={template} />
 
 <style>
 

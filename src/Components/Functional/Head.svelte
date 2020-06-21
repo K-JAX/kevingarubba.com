@@ -1,3 +1,4 @@
+<!-- Only for meta tags and site info. No resource loading here -->
 <script>
     import { onMount, afterUpdate, tick } from 'svelte';
 
@@ -53,6 +54,8 @@
 
         }
     });
+    AOS.init();
+
 </script>
 
 <svelte:head>
@@ -68,7 +71,4 @@
         {/if}
     {/each}
 
-    <!-- Externals -->
-    <script src="https://kit.fontawesome.com/e8a9e75530.js" crossorigin="anonymous"></script>
-    
 </svelte:head>

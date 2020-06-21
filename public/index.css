@@ -10435,6 +10435,10 @@ video {
   background-image: linear-gradient(to top left, #3A1C71, #D76D77, #FFAF7B);
 }
 
+.bg-grayWhite {
+  background-image: linear-gradient(30deg, #bbbbbb, #ffffff);
+}
+
 .bg-mono-circle {
   background-image: radial-gradient(circle, #CCC, #000);
 }
@@ -10465,6 +10469,10 @@ video {
 
 .hover\:bg-relay:hover {
   background-image: linear-gradient(to top left, #3A1C71, #D76D77, #FFAF7B);
+}
+
+.hover\:bg-grayWhite:hover {
+  background-image: linear-gradient(30deg, #bbbbbb, #ffffff);
 }
 
 .hover\:bg-mono-circle:hover {
@@ -20299,6 +20307,10 @@ a {
     background-image: linear-gradient(to top left, #3A1C71, #D76D77, #FFAF7B);
   }
 
+  .sm\:bg-grayWhite {
+    background-image: linear-gradient(30deg, #bbbbbb, #ffffff);
+  }
+
   .sm\:bg-mono-circle {
     background-image: radial-gradient(circle, #CCC, #000);
   }
@@ -20329,6 +20341,10 @@ a {
 
   .sm\:hover\:bg-relay:hover {
     background-image: linear-gradient(to top left, #3A1C71, #D76D77, #FFAF7B);
+  }
+
+  .sm\:hover\:bg-grayWhite:hover {
+    background-image: linear-gradient(30deg, #bbbbbb, #ffffff);
   }
 
   .sm\:hover\:bg-mono-circle:hover {
@@ -30148,6 +30164,10 @@ a {
     background-image: linear-gradient(to top left, #3A1C71, #D76D77, #FFAF7B);
   }
 
+  .md\:bg-grayWhite {
+    background-image: linear-gradient(30deg, #bbbbbb, #ffffff);
+  }
+
   .md\:bg-mono-circle {
     background-image: radial-gradient(circle, #CCC, #000);
   }
@@ -30178,6 +30198,10 @@ a {
 
   .md\:hover\:bg-relay:hover {
     background-image: linear-gradient(to top left, #3A1C71, #D76D77, #FFAF7B);
+  }
+
+  .md\:hover\:bg-grayWhite:hover {
+    background-image: linear-gradient(30deg, #bbbbbb, #ffffff);
   }
 
   .md\:hover\:bg-mono-circle:hover {
@@ -39997,6 +40021,10 @@ a {
     background-image: linear-gradient(to top left, #3A1C71, #D76D77, #FFAF7B);
   }
 
+  .lg\:bg-grayWhite {
+    background-image: linear-gradient(30deg, #bbbbbb, #ffffff);
+  }
+
   .lg\:bg-mono-circle {
     background-image: radial-gradient(circle, #CCC, #000);
   }
@@ -40027,6 +40055,10 @@ a {
 
   .lg\:hover\:bg-relay:hover {
     background-image: linear-gradient(to top left, #3A1C71, #D76D77, #FFAF7B);
+  }
+
+  .lg\:hover\:bg-grayWhite:hover {
+    background-image: linear-gradient(30deg, #bbbbbb, #ffffff);
   }
 
   .lg\:hover\:bg-mono-circle:hover {
@@ -49846,6 +49878,10 @@ a {
     background-image: linear-gradient(to top left, #3A1C71, #D76D77, #FFAF7B);
   }
 
+  .xl\:bg-grayWhite {
+    background-image: linear-gradient(30deg, #bbbbbb, #ffffff);
+  }
+
   .xl\:bg-mono-circle {
     background-image: radial-gradient(circle, #CCC, #000);
   }
@@ -49876,6 +49912,10 @@ a {
 
   .xl\:hover\:bg-relay:hover {
     background-image: linear-gradient(to top left, #3A1C71, #D76D77, #FFAF7B);
+  }
+
+  .xl\:hover\:bg-grayWhite:hover {
+    background-image: linear-gradient(30deg, #bbbbbb, #ffffff);
   }
 
   .xl\:hover\:bg-mono-circle:hover {

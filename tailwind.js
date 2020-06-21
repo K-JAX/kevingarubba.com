@@ -43,7 +43,7 @@ module.exports = {
       'whiteFade':  ['-30deg', 'rgba(255,255,255,0)', 'rgba(255,255,255,0.87)', 'rgba(255,255,255,1)'],
       'fireopal':   ['to right', '#40E0D0', '#FF8C00', '#FF0080'],
       'relay':      ['to top left', '#3A1C71', '#D76D77', '#FFAF7B'],
-
+      'grayWhite':  ['30deg', '#bbbbbb', '#ffffff'],
       // Object definition.
       'mono-circle': {
           type: 'radial',
