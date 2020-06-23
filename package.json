@@ -45,6 +45,7 @@
     "postcss-js": "^2.0.3",
     "postcss-purgecss": "^2.0.3",
     "query-string": "^6.12.1",
+    "rellax": "^1.12.1",
     "rollup-plugin-tailwind": "^1.0.0",
     "sapper-environment": "^1.0.1",
     "sb": "^5.3.18",

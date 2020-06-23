@@ -27,8 +27,10 @@
     {#if swatches}
     <p class="mt-4 mb-2">Swatch</p>
     <ul>
-        {#each swatches as swatch }
-            <li class="inline-block mr-2"><div class="rounded-full w-12 h-12" style={`background: ${swatch.color};`}></div></li>
+        {#each swatches as swatch, i }
+            {#if i < 4}
+            <li class="inline-block mr-2"><div class="rounded-full w-12 h-12 shadow-md" style={`background: ${swatch.color};`}></div></li>
+            {/if}
         {/each}
     </ul>
     {/if}

@@ -75,10 +75,10 @@
     margin-top: auto;
     margin-bottom: auto;
     &.prev{
-        left: -5em;
+        left: 0em;
     }
     &.next{
-        right: -1em;
+        right: 0em;
     }
 }
 .slide{

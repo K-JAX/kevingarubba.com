@@ -6,7 +6,6 @@
 
     const dropdown = () => {
         dropped = dropped == false ? true : false;
-        console.log(dropped);
     }
 
 </script>

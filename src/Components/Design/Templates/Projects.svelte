@@ -94,7 +94,7 @@
 
 <Head pageTagData={pageData} />
 <div class="flex sm:flex-wrap flex-row">
-	<div class="w-64 sm:w-full mr-5 mb-8">
+	<div class="w-64 sm:w-full mr-5 md:mr-0 mb-8">
 		<PageTitle title="Projects" />
 		<p class="text-gray-500">Select below to filter.</p>
 		{#if workflowTaxonomies != []}
@@ -111,9 +111,9 @@
 
 	<div class="sm:w-full">
 		{#if posts != '' && posts !== undefined && posts !== [] }
-		<ul class="w-full flex row flex-wrap">
+		<ul class="w-full flex row flex-wrap md:flex md:justify-center">
 			{#each posts as post}
-				<li class="project-tile inline-block mb-16 mr-16" style="width: 22em;">
+				<li class="project-tile inline-block mb-16 mr-16 md:mr-0" style="width: 22em;">
 					<Link to="projects/{post.slug}" >
 						<div class="thumb-container relative before w-full h-64 overflow-hidden flex justify-center items-center">
 							{#if post._embedded['wp:featuredmedia']}

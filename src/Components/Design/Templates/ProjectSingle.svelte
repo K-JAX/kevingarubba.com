@@ -3,11 +3,17 @@
     // modules
     import { onMount, afterUpdate, onDestroy } from "svelte";
 	import { Link } from "svelte-routing";
+    import Rellax from 'rellax';
+
+// This is the default setting
 
     // components
     import Head from "../../Functional/Head.svelte";
     import PageTitle from "../Atoms/PageTitle.svelte";
     import ProjectFeature from "../Organisms/ProjectFeature.svelte";
+    import BrowserFrame from '../Molecules/BrowserFrame.svelte';
+    import ProjectDetailHeader from '../Molecules/ProjectDetailHeader.svelte';
+    import Button from '../Atoms/Button.svelte';
 
     export let slug;
     export let template ='project-single';
@@ -15,9 +21,10 @@
     let data = [];
     let pageData = [];
     let title = '';
-    let brandName = '';
+    let url = '';
     let featuredImage = {};
     let content = '';
+    let arrow = '<i class="ml-5 fas fa-chevron-circle-right">';
 
     const apiURL = process.env.SAPPER_APP_API_URL;
 
@@ -27,11 +34,9 @@
         data = json
         if (data[0] !== undefined){
             pageData = data[0];
-            title = pageData.title.rendered;
-            brandName = pageData.acf.brand_name !== '' ? pageData.acf.brand_name : title;
+            url = pageData.acf.site_url;
             featuredImage = pageData._embedded['wp:featuredmedia'][0].media_details.sizes.large;
             content = pageData.content.rendered;
-
         }
         storedState = slug;
     }
@@ -39,6 +44,12 @@
 	onMount(async () => {
         template ='project-single';
         getData();
+        setTimeout(function(){
+            var rellax = new Rellax('.rellax', {
+                breakpoints:[639, 767, 1201]
+            }); 
+
+        }, 500)
 	})
 
     afterUpdate(async () => {
@@ -48,7 +59,7 @@
     });
 
     onDestroy(() => {
-        template = 'nothin'
+        template = ''
     })
 
 
@@ -56,33 +67,30 @@
 
 {#if data != ''}
 <Head pageTagData={pageData} />
-<div class="absolute bg-black w-1/2 h-full -mr-8 top-0 right-0" style="z-index: -1;"></div>
-<div class="flex">
-    <div class="w-1/2 pr-12">
-        <Link to="projects"><i>Projects</i></Link> 
-        <PageTitle title={brandName} className="text-6xl flex -ml-10" style="letter-spacing: 10px" />
-
-        <div>{@html content}</div>
+<div class="fixed bg-black md:hidden w-1/2 h-screen -mr-8 top-0 right-0" style="z-index: -1;"></div>
+<div class="flex md:flex-col-reverse">
+    <div class="md:w-full md:mt-16 w-1/2 pr-12 rellax" data-rellax-speed="7" data-rellax-xs-speed="1" data-rellax-mobile-speed="1" >
+        <ProjectDetailHeader projectData={pageData} />
     </div>
-    <div class="w-1/2">
-        <div class="w-full rounded-md -ml-10 bg-gray-500 shadow-2xl">
-            <header class="w-full h-16">
-                <div class="flex justify-between">
-                    <button class="mt-2 -mb-1 uppercase text-xs font-semibold tracking-wideset underline rounded-md px-4 py-2 bg-gray-300">Click to view site <i class="fas fa-link ml-2"></i></button>
-                    <div class="w-12 h-4 mt-1 mr-2 flex justify-between">
-                        <div class="w-3 h-3 rounded-full bg-gray-100"></div>
-                        <div class="w-3 h-3 rounded-full bg-gray-100"></div>
-                        <div class="w-3 h-3 rounded-full bg-gray-100"></div>
-                    </div>
-                </div>
-                <div class="w-full flex h-6 bg-gray-300">
-                    <div class="w-full h-full mx-2 my-px px-2 border-2 bg-white">
-                        <p style="font-size: 0.75em;"><span class="text-gray-600">https://</span>thelimitlesstheory.com</p>
-                    </div>
-                </div>
-            </header>
-            <img class="w-full" src="{featuredImage.source_url}" />
+    <div class="md:w-full w-1/2" data-aos="zoom-out-left" data-aos-duration="1000" data-aos-delay="1000">
+        <BrowserFrame image={featuredImage} siteURL={url} />
+    </div>
+</div>
+<div class="project-content">
+    {@html content}
+</div>
+<div class="flex justify-end" data-aos="fade-left" data-aos-delay="600">
+    <div class="flex flex-wrap w-3/4 md:w-full bg-white shadow-2xl mt-12 mb-16 -ml-24 p-8 md:p-5 rounded-l-lg">
+        <h2 class="text-3xl w-full mb-5">Want to see more?</h2>
+        <div class="flex">
+            <Link to={`projects/`} ><Button priority='primary' className="mr-5" >See all {@html arrow }</Button></Link>
+            <Link to={`contact/`} ><Button priority='tertiary'>Contact me</Button></Link>
         </div>
     </div>
 </div>
 {/if}
+
+
+<style lang="scss">
+
+</style>

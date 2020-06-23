@@ -7,19 +7,19 @@
     
     switch(priority){
         case 'primary':
-            priorityClass = "bg-topaz text-white px-8 shadow-md hover:shadow-lg"
+            priorityClass = "bg-topaz text-white px-8 md:px-5 shadow-md hover:shadow-lg"
             break;
         case 'secondary':
-            priorityClass = "bg-agua text-white px-8 shadow-md hover:shadow-lg"
+            priorityClass = "bg-agua text-white px-8 md:px-5 shadow-md hover:shadow-lg"
             break;
         case 'tertiary':
-            priorityClass = "bg-black text-white px-8 shadow-md hover:shadow-lg"
+            priorityClass = "bg-black text-white px-8 md:px-5 shadow-md hover:shadow-lg"
             break;
         case 'tag':
             priorityClass = "bg-gray-300 text-gray-700 hover:bg-gray-400 px-4"
             break;
         default:
-            priorityClass = "bg-gray-300 text-gray-700 px-8"
+            priorityClass = "bg-gray-300 text-gray-700 px-8 md:px-5"
     }
     
 </script>
