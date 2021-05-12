@@ -41,7 +41,7 @@
     "@storybook/cli": "^5.3.18",
     "@sveltejs/svelte-scroller": "^2.0.6",
     "init": "^0.1.2",
-    "postcss": "^7.0.27",
+    "postcss": "^8.2.10",
     "postcss-js": "^2.0.3",
     "postcss-purgecss": "^2.0.3",
     "query-string": "^6.12.1",
