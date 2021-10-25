@@ -2,6 +2,7 @@
     // modules
     import { onMount } from "svelte";
     import { Link } from "svelte-routing";
+    import { fly, fade } from 'svelte/transition';
     
     // components
     import PageTitle from "../Atoms/PageTitle.svelte";
@@ -29,16 +30,14 @@
             projectSize = projectData.acf.project_size;
         }
 	})
-
 </script>
 
-
-<Link to="projects"><i>Projects</i></Link> 
-<PageTitle title={brandName} className="text-6xl lg:text-3xl flex -ml-10 tracking-widest" />
+<Link to="projects"><i in:fade="{{duration: 2000, delay:2000}}" out:fade>Projects</i></Link> 
+<PageTitle title={brandName} containerClass="-ml-10 text-6xl" className="text-6xl lg:text-3xl flex tracking-widest" height="192" />
 <dl class="project-deets mt-5">
-    <div class="flex w-1/2 justify-between">
+    <div class="flex w-1/2 justify-between" in:fly="{{y:-100, delay:1000, duration: 1000}}" out:fly="{{y:-100, duration: 1000}}">
         {#if workflows !== []}
-        <div class="mr-10">
+        <div class="mr-10"  >
             <dt>Worflow</dt>
             {#each workflows as workflow}
             <dd>{workflow.name}</dd>
@@ -54,20 +53,24 @@
         </div>
         {/if}
     </div>
-    {#if projectSize !== []}
-    <dt>Project Size</dt>
-    <dd>{projectSize}</dd>
-    {/if}
-    {#if year !== ''}
-    <dt>Year</dt>
-    <dd>{year}</dd>
-    {/if}
+    <div in:fly="{{y:50, delay:1750, duration: 1000}}" out:fly="{{y:50, duration: 500}}">
+        {#if projectSize !== []}
+        <dt>Project Size</dt>
+        <dd>{projectSize}</dd>  
+        {/if}
+        {#if year !== ''}
+        <dt>Year</dt>
+        <dd>{year}</dd>
+        {/if}
+    </div>
     {#if swatch !== []}
-    <dt>Color Swatch</dt>
-    <div class="flex flex-wrap w-1/2 lg:w-full -ml-2">
-        {#each swatch as color}
-        <dd class="rounded-full w-12 h-12 shadow-lg mx-2 my-1" style={`background-color: ${color.color};`}></dd>
-        {/each}
+    <div in:fly="{{y:-50, delay:1750, duration: 1000}}" out:fly="{{y:-50, duration: 500}}">
+        <dt>Color Swatch</dt>
+        <div class="flex flex-wrap w-1/2 lg:w-full -ml-2">
+            {#each swatch as color}
+            <dd class="rounded-full w-12 h-12 shadow-lg mx-2 my-1" style={`background-color: ${color.color};`}></dd>
+            {/each}
+        </div>
     </div>
     {/if}
 </dl>

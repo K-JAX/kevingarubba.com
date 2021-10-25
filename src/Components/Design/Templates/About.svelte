@@ -1,7 +1,8 @@
 <script>
     // modules
     import { onMount, afterUpdate } from "svelte";
-    import { fade } from "svelte/transition";
+    import { fade, fly } from "svelte/transition";
+   	import { expoInOut } from 'svelte/easing';
 
     // components
     import Head from "../../Functional/Head.svelte";
@@ -70,18 +71,19 @@
 <Head pageTagData="{pageData}" />
 
 <section>
-    <PageTitle title="About" style="position: relative; z-index:4;" />
+    <PageTitle title="About" style="position: relative; z-index:4;" height="25"/>
     <div class="flex sm:flex-col-reverse flex-row">
         <div class="sm:w-full w-3/5 mt-32 md:mt-4 mx-2" style="z-index: 4; transform: translate(0,{Math.min(100, y / 5)}px);">
-            <h1 class="text-6xl font-bold" in:typewriter={{speed: 100, delay: 1000}}>{pageData.acf.hero_title}</h1>
+            <h2 class="text-6xl font-bold" in:typewriter={{speed: 100, delay: 1000}} out:fly>{pageData.acf.hero_title}</h2>
             <div class="w-3/4">
-                <code class="typed" in:typewriter={{speed: 20, delay: -700}}>{pageData.acf.hero_text}</code>
+                <code class="typed" in:typewriter={{speed: 20, delay: -700}} out:fly>{pageData.acf.hero_text}</code>
             </div>
             <ScrollTo delay={5700} />
         </div>
-        <div class="sm:w-3/4 w-2/5 md:mt-4 mt-8" style="transform: translate(0,{Math.min(24, y / 35)}px);">
+        <div in:fly={{x: 281, duration: 1500, delay: 1000}} out:fly={{x: 281, duration: 1500}} class="sm:w-3/4 w-2/5 md:mt-4 mt-8" style="overflow: hidden; transform: translate(0,{Math.min(24, y / 35)}px);">
             {#if pageData.acf.hero_image !== undefined}
-            <img data-aos="fade-left" data-aos-duration="1500" width=562 src={pageData.acf.hero_image.sizes.medium_large} alt={pageData.acf.hero_image.alt} />
+            <!-- <img data-aos="fade-left" data-aos-duration="1500" width=562 src={pageData.acf.hero_image.sizes.medium_large} alt={pageData.acf.hero_image.alt} /> -->
+            <img in:fly={{x: -562, duration: 1500, delay: 1000}} out:fly={{x: -562, duration: 1500}} width=562 src={pageData.acf.hero_image.sizes.medium_large} alt={pageData.acf.hero_image.alt} />
             {/if}
         </div>
     </div>

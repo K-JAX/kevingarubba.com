@@ -1,7 +1,9 @@
 <script>
     // modules
-    import { fade } from 'svelte/transition';
     import { onMount, afterUpdate } from 'svelte';
+    import { fly } from 'svelte/transition';
+   	import { expoInOut } from 'svelte/easing';
+
 
     // components
     import PageTitle from '../Atoms/PageTitle.svelte';
@@ -34,6 +36,9 @@
 </script>
 
 <Head pageTagData={pageData} />
-<section class="w-full h-full" in:fade="{{duration: 2000}}">
-    <Slideshow data={featuredPosts} duration={8000} transition={4000} />
+<section class="w-full h-full overflow-hidden" in:fly="{{y: 500, duration: 2000, easing: expoInOut}}" out:fly="{{y: 500}}">
+    <div in:fly="{{y: -1000, duration: 2000, easing: expoInOut}}" out:fly="{{y: -1000}}">
+    <!-- <h1>whatevs</h1> -->
+        <Slideshow data={featuredPosts} duration={8000} transition={4000} />
+    </div>
 </section>

@@ -1,10 +1,28 @@
 <script>
-	import { fade } from 'svelte/transition';
+    import { fly } from 'svelte/transition';
+	import { backOut } from 'svelte/easing';
 
-    export let title = '', className = '', style = '';
+    import { onMount } from 'svelte';
+
+    export let title = '', containerClass='', className = '', style = '', height=50;
+
+    let text, placeHolderText;
+
+    onMount(async() =>{
+    })
+
 </script>
-{#if title !== ''}    
-    <h1 transition:fade={{delay:3000, duration: 1000}} class={`${className} text-base font-bold tracking-widest uppercase before`} style={`${style}`}><span>{@html title}</span></h1>
+{#if title !== ''}
+    <div class={`${containerClass}`} style={`overflow-y:hidden;`}>
+        <h1 bind:this={text} 
+            class={`${className} text-base font-bold tracking-widest uppercase before`} 
+            style={`${style}`} 
+            in:fly="{{y:(height), delay:1000, duration: 1000, easing: backOut}}" 
+            out:fly="{{y:(height)}}" 
+        >
+            <span >{@html title}</span>
+        </h1>
+    </div>
 {/if}
 <style>
 
