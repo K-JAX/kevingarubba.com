@@ -1,3 +1,28 @@
-/node_modules/
-/public/build/
+# frontend ignore
+node_modules/
+public/build/
 .DS_Store
+
+# wordpress ignore
+wp-admin/
+wp-includes/
+app/public/index.php
+licence.txt
+readme.html
+wp-activate.php
+wp-blog-header.php
+wp-comments.php
+wp-config.php
+wp-config-sample.php
+wp-cron.php
+wp-links-opml.php
+wp-load.php
+wp-login.php
+wp-mail.php
+wp-settings.php
+wp-signup.php
+wp-trackback.php
+xmlrpc.php
+
+plugins/
+uploads/
