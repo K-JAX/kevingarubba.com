@@ -12,8 +12,8 @@ body {
     box-sizing: border-box;
 }
 
-code{
-    font-family: 'Fira Code', monospace !important;
+code {
+    font-family: "Fira Code", monospace !important;
 }
 
 // pseudos
@@ -32,28 +32,27 @@ code{
     }
 }
 
-
-
 // form elements
 
-label{
-    text-transform: uppercase;    
+label {
+    text-transform: uppercase;
     font-weight: 700;
     font-size: 0.9em;
 }
 
-input, textarea{
+input,
+textarea {
     border-bottom: 1px solid black;
     font-size: 1.5em !important;
 }
 
-input{
+input {
     padding-top: 0.55em !important;
     padding-bottom: 0.55em !important;
 }
 
-label{
-    textarea{
+label {
+    textarea {
         border-top: 1px solid #ccc;
         border-left: 1px solid #aaa;
         border-right: 1px solid #aaa;
@@ -61,53 +60,52 @@ label{
     }
 }
 
-.wpcf7-submit{
+.wpcf7-submit {
     cursor: pointer;
     transition: 0.125s;
-    &:after{
+    &:after {
         content: "\f0a9";
         font-family: FontAwesome;
         font-style: normal;
         font-weight: normal;
         margin-left: 1.25em;
     }
-    &.loading{
+    &.loading {
         cursor: not-allowed;
         color: #aaa;
         background-color: #ccc;
         background-image: none !important;
     }
-    &.sent{
+    &.sent {
         cursor: not-allowed;
         color: #b3fbb0;
-        &:after{
+        &:after {
             content: "\f00c";
         }
     }
 }
 
-.wpcf7-response-output{
+.wpcf7-response-output {
     margin: 1.1em 0;
     transform: rotateX(0deg);
     transition: 0.25s;
-    span{
+    span {
         position: relative;
         padding: 0.75em 1.25em;
         border-radius: 200px;
         color: white;
         transition: 0.5s;
-
     }
-    &.wpcf7-display-none{
+    &.wpcf7-display-none {
         transform: rotateX(90deg);
     }
-    &.error-message span{
+    &.error-message span {
         background-color: #ff6756;
     }
-    &.success-message span{
+    &.success-message span {
         background-color: #57c853;
-        &:before{
-            content: '';
+        &:before {
+            content: "";
             position: absolute;
             background-color: transparent;
             border-bottom: 10px solid #57c853;
@@ -121,47 +119,48 @@ label{
         }
     }
 }
-.required-field{
+.required-field {
     color: #ff6756;
 }
 
 // project single rules
 
-.project-content{
-    .wp-block-columns{
+.project-content {
+    .wp-block-columns {
         display: flex;
         width: 100%;
         margin: 5em 0;
-        @media all and(max-width: 767px){
+        @media all and(max-width: 767px) {
             flex-direction: column;
         }
-        .wp-block-column{
+        .wp-block-column {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            width:50%;
-            @media all and(max-width: 767px){
+            width: 50%;
+            @media all and(max-width: 767px) {
                 width: 100%;
             }
-            h2, p{
+            h2,
+            p {
                 margin: 1em 12.5%;
             }
-            h2{
+            h2 {
                 font-size: 2em;
                 font-weight: 500;
                 text-transform: uppercase;
             }
-            &:first-of-type{
-                figure{
+            &:first-of-type {
+                figure {
                     padding: 1em 2.5em 1em 0;
                 }
             }
-            &:last-of-type{
+            &:last-of-type {
                 color: #fff;
-                figure{
+                figure {
                     padding: 1em 0 1em 2.5em;
                 }
-                @media all and (max-width: 767px){
+                @media all and (max-width: 767px) {
                     color: #000;
                 }
             }

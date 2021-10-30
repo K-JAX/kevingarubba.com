@@ -8,8 +8,8 @@
     let data = [];
     let metaFields = [];
     let pageData = {};
-    let title = '';
-    let content = '';
+    let title = "";
+    let content = "";
 
     const apiURL = process.env.SAPPER_APP_API_URL;
 
@@ -18,18 +18,18 @@
         const json = await res.json();
         data = json;
         metaFields = data.yoast_meta;
-        if( data[0] !== ''){
-            pageData = data[0]
+        if (data[0] !== "") {
+            pageData = data[0];
             title = data[0].title.rendered;
             content = data[0].content.rendered;
-        } 
-        console.log(data)
+        }
+        console.log(data);
     });
 </script>
 
-<Head pageTagData={pageData} />
+<Head pageTagData="{pageData}" />
 
 <section in:fade>
-    <PageTitle title="{title}" />
+    <PageTitle {title} />
     {@html content}
 </section>

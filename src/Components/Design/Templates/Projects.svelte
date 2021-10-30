@@ -4,6 +4,8 @@
 	import { onMount, afterUpdate } from 'svelte';
 	import { Router, Link, navigate } from "svelte-routing";
 	import queryString from "query-string";
+	import {fly, fade} from 'svelte/transition';
+   	import { expoInOut } from 'svelte/easing';
 	
 	// components
     import Head from '../../Functional/Head.svelte';
@@ -96,26 +98,32 @@
 <div class="flex sm:flex-wrap flex-row">
 	<div class="w-64 sm:w-full mr-5 md:mr-0 mb-8">
 		<PageTitle title="Projects" />
-		<p class="text-gray-500">Select below to filter.</p>
+		<p in:fade="{{duration: 2000, delay: 2000}}" out:fade="{{duration: 500}}" class="text-gray-500">Select below to filter.</p>
 		{#if workflowTaxonomies != []}
-			<FacetPanel title='Workflow' facets={workflowTaxonomies} bind:groupSelection={workflowSelection} addQuery={addQuery} inputType={'checkbox'} />
+			<div in:fly="{{y: 176, duration: 1500, delay: 350, easing: expoInOut}}" out:fly="{{y: 176}}">
+				<FacetPanel title='Workflow' facets={workflowTaxonomies} bind:groupSelection={workflowSelection} addQuery={addQuery} inputType={'checkbox'} />
+			</div>
 		{/if}
 		{#if techTaxonomies != []}
-			<FacetPanel title='Tech Stack' facets={techTaxonomies} bind:groupSelection={techSelection} addQuery={addQuery} inputType={'checkbox'} />
+			<div in:fly="{{y: 176, duration: 1500, delay: 450, easing: expoInOut}}" out:fly="{{y: 176}}">
+				<FacetPanel title='Tech Stack' facets={techTaxonomies} bind:groupSelection={techSelection} addQuery={addQuery} inputType={'checkbox'} />
+			</div>
 		{/if}
 
 		{#if yearArray != []}
-			<FacetPanel title='Year' facets={yearArray} bind:groupSelection={yearSelection} addQuery={addQuery} inputType='radio' all={true} />
+			<div in:fly="{{y: 176, duration: 1500, delay: 550, easing: expoInOut}}" out:fly="{{y: 176}}">
+				<FacetPanel title='Year' facets={yearArray} bind:groupSelection={yearSelection} addQuery={addQuery} inputType='radio' all={true} />
+			</div>
 		{/if}
 	</div>
 
 	<div class="sm:w-full">
 		{#if posts != '' && posts !== undefined && posts !== [] }
 		<ul class="w-full flex row flex-wrap md:flex md:justify-center">
-			{#each posts as post}
-				<li class="project-tile inline-block mb-16 mr-16 md:mr-0" style="width: 22em;">
+			{#each posts as post, i}
+				<li class="project-tile inline-block mb-16 mr-16 md:mr-0 overflow-hidden" style="width: 22em;" in:fly="{{y: 176, duration: 1500, delay: (50), easing: expoInOut}}" out:fly="{{y: 176}}">
 					<Link to="projects/{post.slug}" >
-						<div class="thumb-container relative before w-full h-64 overflow-hidden flex justify-center items-center">
+						<div class="thumb-container relative before w-full h-64 overflow-hidden flex justify-center items-center" in:fly="{{y: -256, duration: 1500, delay: (50), easing: expoInOut}}" out:fly="{{y: -256}}">
 							{#if post._embedded['wp:featuredmedia']}
 								<img class="w-full" alt="project" src={post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url} />
 							{:else}

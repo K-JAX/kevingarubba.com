@@ -1,7 +1,8 @@
 <script>
     // Modules
-    import { fade } from 'svelte/transition';
     import { onMount, afterUpdate } from 'svelte';
+    import { fly } from 'svelte/transition';
+   	import { expoInOut } from 'svelte/easing';
     import queryString from 'query-string';
 
 
@@ -9,6 +10,7 @@
     import PageTitle from '../Atoms/PageTitle.svelte';
     import Head from '../../Functional/Head.svelte';
     import NotFound from './NotFound.svelte';
+    import FormDefault from "../../Functional/FormDefault.svelte"
 
     let data = [];
     let pageData = [];
@@ -47,12 +49,17 @@
     });
 
 </script>
+<FormDefault />
 
 {#if data != ''}
 <Head pageTagData={pageData} />
-<section in:fade>
+<section>
     <PageTitle className="my-5" title={title} />
-    {@html content}
+    <div class="overflow-hidden" in:fly="{{y: 1176, duration: 1500, delay: (50), easing: expoInOut}}" out:fly="{{y: 1176}}">
+        <div in:fly="{{y: -1256, duration: 1500, delay: (50), easing: expoInOut}}" out:fly="{{y: -1256}}">
+            {@html content}
+        </div>
+    </div>
 </section>
 {:else}
 <NotFound />
