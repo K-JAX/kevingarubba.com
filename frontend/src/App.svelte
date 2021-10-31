@@ -5,10 +5,6 @@
     // Components
     import Page from "./Components/Design/Page.svelte";
 
-    const { api_url } = process.env;
-
-    console.log("api_url is " + api_url);
-
     import { durVal } from "./Components/Functional/SiteLoadCookie.svelte";
 
     // console.log("performing fetch");
