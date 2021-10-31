@@ -3,6 +3,11 @@
  * Kevin Garubba WP Theme functions and definitions
  */
 
+function add_cors_http_header(){
+    header("Access-Control-Allow-Origin: *");
+}
+add_action('init','add_cors_http_header');
+
 // setup theme
 if(! function_exists('kg_setup')){
     function kg_setup(){
