@@ -6,7 +6,7 @@ name: Build & Deploy
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [master]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -21,20 +21,20 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Deploy Wordpress and Svelte App
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      uses: appleboy/ssh-action@master
-      with:
+        # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+        uses: appleboy/ssh-action@master
+        with:
           host: ${{secrets.SSH_HOST}}
           key: ${{secrets.SSH_KEY}}
           username: ${{secrets.SSH_USERNAME}}
 
           script: |
-              rm -rf deployment
-              mkdir deployment
-              cd deployment
-              git clone --depth 1 git@github.com:K-JAX/kevingarubba.com.git
-              cd kevingarubba.com/frontend && yarn && yarn build && cd ../..
-              rm -rf /var/www/frontend
-              cp -R kevingarubba.com/frontend /var/www/
-              rm -rf /var/www/wordpress/wp-content/themes
-              cp -R kevingarubba.com/wordpress/app/public/wp-content/themes /var/www/wordpress/wp-content/themes
+            rm -rf deployment
+            mkdir deployment
+            cd deployment
+            git clone --depth 1 git@github.com:K-JAX/kevingarubba.com.git
+            cd kevingarubba.com/frontend && yarn && yarn build && cd ../..
+            rm -rf /var/www/frontend
+            cp -R kevingarubba.com/frontend /var/www/
+            rm -rf /var/www/wordpress/wp-content/themes
+            cp -R kevingarubba.com/wordpress/app/public/wp-content/themes /var/www/wordpress/wp-content/themes
