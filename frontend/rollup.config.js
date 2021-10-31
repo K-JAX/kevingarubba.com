@@ -6,8 +6,6 @@ import { terser } from "rollup-plugin-terser";
 import sveltePreprocess from "svelte-preprocess";
 import replace from "@rollup/plugin-replace";
 import sapperEnv from "sapper-environment";
-import { autoPreprocess } from "svelte-preprocess/dist/autoProcess";
-import { wrap } from "module";
 
 const production = !process.env.ROLLUP_WATCH;
 
