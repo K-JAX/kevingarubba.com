@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Deploy Wordpress and Svelte App
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@master
       with:
           host: ${{secrets.SSH_HOST}}
           key: ${{secrets.SSH_KEY}}
