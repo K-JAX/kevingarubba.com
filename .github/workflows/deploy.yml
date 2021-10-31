@@ -33,7 +33,7 @@ jobs:
             mkdir deployment
             cd deployment
             git clone --depth 1 git@github.com:K-JAX/kevingarubba.com.git
-            cd kevingarubba.com/frontend && yarn && yarn build && yarn start && cd ../..
+            cd kevingarubba.com/frontend && yarn && yarn build && cd ../..
             rm -rf /var/www/frontend
             cp -R kevingarubba.com/frontend /var/www/
             rm -rf /var/www/wordpress/wp-content/themes
