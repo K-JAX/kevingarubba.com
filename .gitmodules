@@ -1,6 +1,0 @@
-[submodule "kevingarubba-wordpress"]
-	path = kevingarubba-wordpress
-	url = git@github.com:K-JAX/kevingarubba-wordpress.git
-[submodule "wordpress"]
-	path = wordpress
-	url = git@github.com:K-JAX/kevingarubba-wordpress.git
