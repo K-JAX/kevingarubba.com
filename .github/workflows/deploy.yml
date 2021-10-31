@@ -36,5 +36,5 @@ jobs:
             cd kevingarubba.com/frontend && yarn && yarn build && cd ../..
             rm -rf /var/www/frontend
             cp -R kevingarubba.com/frontend /var/www/
-            rm -rf /var/www/wordpress/wp-content/themes
-            cp -R kevingarubba.com/wordpress/app/public/wp-content/themes /var/www/wordpress/wp-content/themes
+            rm -rf /var/www/wordpress/wp-content/themes/kevingarubba.com-wp-theme
+            cp -R kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme /var/www/wordpress/wp-content/themes
