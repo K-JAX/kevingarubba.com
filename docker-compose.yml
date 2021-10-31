@@ -1,0 +1,79 @@
+version: "3.8"
+
+services:
+  db:
+    container_name: db
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_DATABASE=${WORDPRESS_DB_NAME}
+      - MYSQL_PASSWORD=${WORDPRESS_DB_PASSWORD}
+      - MYSQL_USER=${WORDPRESS_DB_USER}
+    image: mariadb
+    volumes:
+      - ./data:/var/lib/mysql:Z
+    ports:
+      - "3307:3306"
+    restart: always
+    networks:
+      - kg
+  wp:
+    container_name: wp
+    depends_on:
+      - db
+    image: wordpress:latest
+    volumes:
+      - ./wordpress/app/public/.htaccess:/var/www/html/.htaccess
+      - ./wordpress/app/public/wp-content/themes/:/var/www/html/wp-content/themes/
+      - ./wordpress/app/public/wp-content/plugins/:/var/www/html/wp-content/plugins/
+      - ./wordpress/app/public/wp-content/uploads/:/var/www/html/wp-content/uploads/
+      - ./config/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+    ports:
+      - "8080:80"
+    expose:
+      - "8080"
+    environment:
+      - WORDPRESS_DB_HOST=${WORDPRESS_DB_HOST}
+      - WORDPRESS_DB_USER=${WORDPRESS_DB_USER}
+      - WORDPRESS_DB_PASSWORD=${WORDPRESS_DB_PASSWORD}
+      - WORDPRESS_DB_NAME=${WORDPRESS_DB_NAME}
+    restart: always
+    networks:
+      - kg
+  phpma:
+    container_name: phpma
+    depends_on:
+      - db
+    image: phpmyadmin:latest
+    environment:
+      - PMA_HOST=${WORDPRESS_DB_HOST}
+      - PMA_USER=${WORDPRESS_DB_USER}
+      - PMA_PASSWORD=${WORDPRESS_DB_PASSWORD}
+      - PHP_UPLOAD_MAX_FILESIZE=600M
+      - UPLOAD_LIMIT=600M
+      - PHP_MAX_INPUT_VARS=1
+    ports:
+      - "8001:80"
+    restart: always
+    networks:
+      - kg
+  node:
+    command: yarn dev
+    container_name: node
+    expose:
+      - "8081"
+    build: ./frontend
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./frontend/src:/home/node/app/src:Z
+      # - ./frontend/.eslintrc.json:/home/node/app/.eslintrc:Z
+    working_dir: /home/node/app
+    networks:
+      - kg
+
+volumes:
+  data: {}
+  wordpress: {}
+
+networks:
+  kg:

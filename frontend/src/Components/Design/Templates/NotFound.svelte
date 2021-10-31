@@ -11,7 +11,7 @@
     let title = "";
     let content = "";
 
-    const apiURL = process.env.SAPPER_APP_API_URL;
+    const apiURL = process.env.api_url;
 
     onMount(async () => {
         const res = await fetch(`${apiURL}/wp/v2/pages?slug=404-not-found`);

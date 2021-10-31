@@ -53,3 +53,124 @@
 [17-Oct-2021 20:06:41 UTC] PHP   7. WP_Hook->apply_filters() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:311
 [17-Oct-2021 20:06:41 UTC] PHP   8. add_cors_http_header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:287
 [17-Oct-2021 20:06:41 UTC] PHP   9. header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php:69
+[27-Oct-2021 18:37:11 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php on line 69
+[27-Oct-2021 18:37:11 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php on line 69
+[27-Oct-2021 18:37:11 UTC] PHP Stack trace:
+[27-Oct-2021 18:37:11 UTC] PHP Stack trace:
+[27-Oct-2021 18:37:11 UTC] PHP   1. {main}() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-cron.php:0
+[27-Oct-2021 18:37:11 UTC] PHP   1. {main}() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-cron.php:0
+[27-Oct-2021 18:37:11 UTC] PHP   2. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-cron.php:44
+[27-Oct-2021 18:37:11 UTC] PHP   2. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-cron.php:44
+[27-Oct-2021 18:37:11 UTC] PHP   3. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-load.php:37
+[27-Oct-2021 18:37:11 UTC] PHP   3. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-load.php:37
+[27-Oct-2021 18:37:11 UTC] PHP   4. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-config.php:77
+[27-Oct-2021 18:37:11 UTC] PHP   4. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-config.php:77
+[27-Oct-2021 18:37:11 UTC] PHP   5. do_action() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-settings.php:540
+[27-Oct-2021 18:37:11 UTC] PHP   5. do_action() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-settings.php:540
+[27-Oct-2021 18:37:11 UTC] PHP   6. WP_Hook->do_action() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/plugin.php:478
+[27-Oct-2021 18:37:11 UTC] PHP   7. WP_Hook->apply_filters() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:311
+[27-Oct-2021 18:37:11 UTC] PHP   6. WP_Hook->do_action() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/plugin.php:478
+[27-Oct-2021 18:37:11 UTC] PHP   8. add_cors_http_header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:287
+[27-Oct-2021 18:37:11 UTC] PHP   7. WP_Hook->apply_filters() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:311
+[27-Oct-2021 18:37:11 UTC] PHP   9. header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php:69
+[27-Oct-2021 18:37:11 UTC] PHP   8. add_cors_http_header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:287
+[27-Oct-2021 18:37:11 UTC] PHP   9. header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php:69
+[27-Oct-2021 18:37:11 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php on line 69
+[27-Oct-2021 18:37:11 UTC] PHP Stack trace:
+[27-Oct-2021 18:37:11 UTC] PHP   1. {main}() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-cron.php:0
+[27-Oct-2021 18:37:11 UTC] PHP   2. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-cron.php:44
+[27-Oct-2021 18:37:11 UTC] PHP   3. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-load.php:37
+[27-Oct-2021 18:37:11 UTC] PHP   4. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-config.php:77
+[27-Oct-2021 18:37:11 UTC] PHP   5. do_action() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-settings.php:540
+[27-Oct-2021 18:37:11 UTC] PHP   6. WP_Hook->do_action() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/plugin.php:478
+[27-Oct-2021 18:37:11 UTC] PHP   7. WP_Hook->apply_filters() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:311
+[27-Oct-2021 18:37:11 UTC] PHP   8. add_cors_http_header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:287
+[27-Oct-2021 18:37:11 UTC] PHP   9. header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php:69
+[27-Oct-2021 20:09:33 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php on line 69
+[27-Oct-2021 20:09:33 UTC] PHP Stack trace:
+[27-Oct-2021 20:09:33 UTC] PHP   1. {main}() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-cron.php:0
+[27-Oct-2021 20:09:33 UTC] PHP   2. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-cron.php:44
+[27-Oct-2021 20:09:33 UTC] PHP   3. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-load.php:37
+[27-Oct-2021 20:09:33 UTC] PHP   4. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-config.php:77
+[27-Oct-2021 20:09:33 UTC] PHP   5. do_action() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-settings.php:540
+[27-Oct-2021 20:09:33 UTC] PHP   6. WP_Hook->do_action() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/plugin.php:478
+[27-Oct-2021 20:09:33 UTC] PHP   7. WP_Hook->apply_filters() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:311
+[27-Oct-2021 20:09:33 UTC] PHP   8. add_cors_http_header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:287
+[27-Oct-2021 20:09:33 UTC] PHP   9. header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php:69
+[27-Oct-2021 20:09:33 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php on line 69
+[27-Oct-2021 20:09:33 UTC] PHP Stack trace:
+[27-Oct-2021 20:09:33 UTC] PHP   1. {main}() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-cron.php:0
+[27-Oct-2021 20:09:33 UTC] PHP   2. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-cron.php:44
+[27-Oct-2021 20:09:33 UTC] PHP   3. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-load.php:37
+[27-Oct-2021 20:09:33 UTC] PHP   4. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-config.php:77
+[27-Oct-2021 20:09:33 UTC] PHP   5. do_action() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-settings.php:540
+[27-Oct-2021 20:09:33 UTC] PHP   6. WP_Hook->do_action() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/plugin.php:478
+[27-Oct-2021 20:09:33 UTC] PHP   7. WP_Hook->apply_filters() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:311
+[27-Oct-2021 20:09:33 UTC] PHP   8. add_cors_http_header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:287
+[27-Oct-2021 20:09:33 UTC] PHP   9. header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php:69
+[29-Oct-2021 21:54:43 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php on line 69
+[29-Oct-2021 21:54:43 UTC] PHP Stack trace:
+[29-Oct-2021 21:54:43 UTC] PHP   1. {main}() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-cron.php:0
+[29-Oct-2021 21:54:43 UTC] PHP   2. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-cron.php:44
+[29-Oct-2021 21:54:43 UTC] PHP   3. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-load.php:37
+[29-Oct-2021 21:54:43 UTC] PHP   4. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-config.php:77
+[29-Oct-2021 21:54:43 UTC] PHP   5. do_action() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-settings.php:540
+[29-Oct-2021 21:54:43 UTC] PHP   6. WP_Hook->do_action() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/plugin.php:478
+[29-Oct-2021 21:54:43 UTC] PHP   7. WP_Hook->apply_filters() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:311
+[29-Oct-2021 21:54:43 UTC] PHP   8. add_cors_http_header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:287
+[29-Oct-2021 21:54:43 UTC] PHP   9. header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php:69
+[29-Oct-2021 21:54:43 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php on line 69
+[29-Oct-2021 21:54:43 UTC] PHP Stack trace:
+[29-Oct-2021 21:54:43 UTC] PHP   1. {main}() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-cron.php:0
+[29-Oct-2021 21:54:43 UTC] PHP   2. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-cron.php:44
+[29-Oct-2021 21:54:43 UTC] PHP   3. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-load.php:37
+[29-Oct-2021 21:54:43 UTC] PHP   4. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-config.php:77
+[29-Oct-2021 21:54:43 UTC] PHP   5. do_action() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-settings.php:540
+[29-Oct-2021 21:54:43 UTC] PHP   6. WP_Hook->do_action() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/plugin.php:478
+[29-Oct-2021 21:54:43 UTC] PHP   7. WP_Hook->apply_filters() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:311
+[29-Oct-2021 21:54:43 UTC] PHP   8. add_cors_http_header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:287
+[29-Oct-2021 21:54:43 UTC] PHP   9. header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php:69
+[30-Oct-2021 01:26:14 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php on line 69
+[30-Oct-2021 01:26:14 UTC] PHP Stack trace:
+[30-Oct-2021 01:26:14 UTC] PHP   1. {main}() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-cron.php:0
+[30-Oct-2021 01:26:14 UTC] PHP   2. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-cron.php:44
+[30-Oct-2021 01:26:14 UTC] PHP   3. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-load.php:37
+[30-Oct-2021 01:26:14 UTC] PHP   4. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-config.php:77
+[30-Oct-2021 01:26:14 UTC] PHP   5. do_action() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-settings.php:540
+[30-Oct-2021 01:26:14 UTC] PHP   6. WP_Hook->do_action() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/plugin.php:478
+[30-Oct-2021 01:26:14 UTC] PHP   7. WP_Hook->apply_filters() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:311
+[30-Oct-2021 01:26:14 UTC] PHP   8. add_cors_http_header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:287
+[30-Oct-2021 01:26:14 UTC] PHP   9. header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php:69
+[30-Oct-2021 01:26:14 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php on line 69
+[30-Oct-2021 01:26:14 UTC] PHP Stack trace:
+[30-Oct-2021 01:26:14 UTC] PHP   1. {main}() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-cron.php:0
+[30-Oct-2021 01:26:14 UTC] PHP   2. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-cron.php:44
+[30-Oct-2021 01:26:14 UTC] PHP   3. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-load.php:37
+[30-Oct-2021 01:26:14 UTC] PHP   4. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-config.php:77
+[30-Oct-2021 01:26:14 UTC] PHP   5. do_action() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-settings.php:540
+[30-Oct-2021 01:26:14 UTC] PHP   6. WP_Hook->do_action() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/plugin.php:478
+[30-Oct-2021 01:26:14 UTC] PHP   7. WP_Hook->apply_filters() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:311
+[30-Oct-2021 01:26:14 UTC] PHP   8. add_cors_http_header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:287
+[30-Oct-2021 01:26:14 UTC] PHP   9. header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php:69
+[30-Oct-2021 01:26:14 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php on line 69
+[30-Oct-2021 01:26:14 UTC] PHP Stack trace:
+[30-Oct-2021 01:26:14 UTC] PHP   1. {main}() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-cron.php:0
+[30-Oct-2021 01:26:14 UTC] PHP   2. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-cron.php:44
+[30-Oct-2021 01:26:14 UTC] PHP   3. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-load.php:37
+[30-Oct-2021 01:26:14 UTC] PHP   4. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-config.php:77
+[30-Oct-2021 01:26:14 UTC] PHP   5. do_action() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-settings.php:540
+[30-Oct-2021 01:26:14 UTC] PHP   6. WP_Hook->do_action() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/plugin.php:478
+[30-Oct-2021 01:26:14 UTC] PHP   7. WP_Hook->apply_filters() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:311
+[30-Oct-2021 01:26:14 UTC] PHP   8. add_cors_http_header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:287
+[30-Oct-2021 01:26:14 UTC] PHP   9. header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php:69
+[30-Oct-2021 03:01:03 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php on line 69
+[30-Oct-2021 03:01:03 UTC] PHP Stack trace:
+[30-Oct-2021 03:01:03 UTC] PHP   1. {main}() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-cron.php:0
+[30-Oct-2021 03:01:03 UTC] PHP   2. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-cron.php:44
+[30-Oct-2021 03:01:03 UTC] PHP   3. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-load.php:37
+[30-Oct-2021 03:01:03 UTC] PHP   4. require_once() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-config.php:77
+[30-Oct-2021 03:01:03 UTC] PHP   5. do_action() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-settings.php:540
+[30-Oct-2021 03:01:03 UTC] PHP   6. WP_Hook->do_action() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/plugin.php:478
+[30-Oct-2021 03:01:03 UTC] PHP   7. WP_Hook->apply_filters() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:311
+[30-Oct-2021 03:01:03 UTC] PHP   8. add_cors_http_header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-includes/class-wp-hook.php:287
+[30-Oct-2021 03:01:03 UTC] PHP   9. header() /home/kjax/Local Sites/kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme/functions.php:69

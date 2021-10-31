@@ -1,179 +1,251 @@
 <script>
+    // modules
+    import { onMount, afterUpdate } from "svelte";
+    import { Router, Link, navigate } from "svelte-routing";
+    import queryString from "query-string";
+    import { fly, fade } from "svelte/transition";
+    import { expoInOut } from "svelte/easing";
 
-	// modules
-	import { onMount, afterUpdate } from 'svelte';
-	import { Router, Link, navigate } from "svelte-routing";
-	import queryString from "query-string";
-	import {fly, fade} from 'svelte/transition';
-   	import { expoInOut } from 'svelte/easing';
-	
-	// components
-    import Head from '../../Functional/Head.svelte';
-	import PageTitle from '../Atoms/PageTitle.svelte';
-	import FacetPanel from '../Molecules/FacetPanel.svelte';
+    // components
+    import Head from "../../Functional/Head.svelte";
+    import PageTitle from "../Atoms/PageTitle.svelte";
+    import FacetPanel from "../Molecules/FacetPanel.svelte";
+    // props
+    export let location;
 
-	// props
-	export let location;
-	
-	// variables
-	let posts = [];
-	let workflowTaxonomies = [];
-	let techTaxonomies = [];
-	let yearArray = [];
-	let filter = false;
-	let categoryFilters = [];
-	let query = '';
-	let parsed = {};
-	let pageData = {};
-	let storedState = '';
-	const apiURL = process.env.SAPPER_APP_API_URL;
-	let queryParams = queryString.parse(location.search);
-	let workflowSelection = queryParams.workflow !== undefined && queryParams.workflow !== '' ? queryParams.workflow : '';
-	let techSelection = queryParams.tech !== undefined && queryParams.tech !== '' ? queryParams.tech : '';
-	let yearSelection = queryParams.year !== undefined && queryParams.year !== '' ? queryParams.year : '';
+    // variables
+    let posts = [];
+    let workflowTaxonomies = [];
+    let techTaxonomies = [];
+    let yearArray = [];
+    let filter = false;
+    let categoryFilters = [];
+    let query = "";
+    let parsed = {};
+    let pageData = {};
+    let storedState = "";
+    const apiURL = process.env.SAPPER_APP_API_URL;
+    let queryParams = queryString.parse(location.search);
+    let workflowSelection =
+        queryParams.workflow === undefined || queryParams.workflow === ""
+            ? ""
+            : queryParams.workflow;
+    let techSelection =
+        queryParams.tech === undefined || queryParams.tech === ""
+            ? ""
+            : queryParams.tech;
+    let yearSelection =
+        queryParams.year === undefined || queryParams.year === ""
+            ? ""
+            : queryParams.year;
+    const getUnifiedQueryString = () => {
+        queryParams = queryString.parse(location.search);
+        let workflow =
+            queryParams.workflow === undefined || queryParams.workflow === ""
+                ? ""
+                : "workflow=" + queryParams.workflow;
+        let tech =
+            queryParams.tech === undefined || queryParams.tech === ""
+                ? ""
+                : "&tech=" + queryParams.tech;
+        let year =
+            queryParams.year !== undefined && queryParams.year !== ""
+                ? "&after=" +
+                  queryParams.year +
+                  "-01-00T00:00:00&before=" +
+                  (parseInt(queryParams.year) + 1) +
+                  "-01-00T00:00:00"
+                : "";
+        let unifiedQuery = `${workflow}${tech}${year}`;
+        return unifiedQuery;
+    };
 
-	const getUnifiedQueryString = () => {
-  		queryParams = queryString.parse(location.search);
-		let workflow = queryParams.workflow !== undefined ? 'workflow=' + queryParams.workflow : '';
-		let tech = queryParams.tech !== undefined ? '&tech=' + queryParams.tech : '';
-		let year = queryParams.year !== undefined && queryParams.year !== '' ? '&after=' + queryParams.year + '-01-00T00:00:00&before=' + (parseInt(queryParams.year) + 1) + '-01-00T00:00:00' : '';
-		let unifiedQuery = `${workflow}${tech}${year}`;
-		return unifiedQuery;
-	}
-	
-	const getData = async(query = '') => {
-        let [pageResponse, workflowTaxResponse, techTaxResponse, projResponse] = await Promise.all([
-			fetch(`${apiURL}/wp/v2/pages?slug=projects`),
-			fetch(`${apiURL}/wp/v2/workflow`),
-			fetch(`${apiURL}/wp/v2/tech`),
+    const getData = async (query = "") => {
+        let [
+            pageResponse,
+            workflowTaxResponse,
+            techTaxResponse,
+            projResponse
+        ] = await Promise.all([
+            fetch(`${apiURL}/wp/v2/pages?slug=projects`),
+            fetch(`${apiURL}/wp/v2/workflow`),
+            fetch(`${apiURL}/wp/v2/tech`),
             fetch(`${apiURL}/wp/v2/project?_embed&${getUnifiedQueryString()}`)
-		]);
-		let page = await pageResponse.json()
-		if( page[0] !== ''){
-            pageData = page[0]
-		}
-		workflowTaxonomies = await workflowTaxResponse.json();
-		techTaxonomies = await techTaxResponse.json();
-		posts = await projResponse.json();
+        ]);
+        let page = await pageResponse.json();
+        if (page[0] !== "") {
+            pageData = page[0];
+        }
+        workflowTaxonomies = await workflowTaxResponse.json();
+        techTaxonomies = await techTaxResponse.json();
+        posts = await projResponse.json();
+        storedState = location.search;
+    };
 
-		storedState = location.search;
-	}
-	
-	const getYears = async() => {
-        const res = await fetch(`${apiURL}/wp/v2/project`)
-        const data = await res.json()
+    const getYears = async () => {
+        const res = await fetch(`${apiURL}/wp/v2/project`);
+        const data = await res.json();
+        let dataArray = [];
+        data.forEach(dataItem => {
+            if (!dataArray.includes(dataItem.year)) {
+                dataArray.push(dataItem.year);
+            }
+        });
+        yearArray = dataArray;
+    };
 
-		let dataArray = [];
-		data.forEach( dataItem => {
-			if(! dataArray.includes(dataItem.year)){
-				dataArray.push(dataItem.year);
-			}
-		})
-		yearArray = dataArray;
-	}
-	
-	onMount(async () => {
-		getData();
-		getYears();
-	})
-
-	afterUpdate(async () => {
-		if( location.search != storedState){
-			getData();
-			getYears();
-		}
-	})
-
-	const addQuery = (group, e) => {
-		let workflow = 'workflow=' + workflowSelection;
-		let tech = 'tech=' + techSelection;
-		let year = 'year=' + yearSelection;
-		let queryString = `${workflow}&${tech}&${year}`;
-		navigate("/projects/?" + queryString, { replace: false });
-	}
-
+    onMount(async () => {
+        getData();
+        getYears();
+    });
+    afterUpdate(async () => {
+        if (location.search != storedState) {
+            getData();
+            getYears();
+        }
+    });
+    const addQuery = (group, e) => {
+        let workflow = "workflow=" + workflowSelection;
+        let tech = "tech=" + techSelection;
+        let year = "year=" + yearSelection;
+        let queryString = `${workflow}&${tech}&${year}`;
+        navigate("/projects/?" + queryString, { replace: false });
+    };
 </script>
 
-<Head pageTagData={pageData} />
+<Head pageTagData="{pageData}" />
 <div class="flex sm:flex-wrap flex-row">
-	<div class="w-64 sm:w-full mr-5 md:mr-0 mb-8">
-		<PageTitle title="Projects" />
-		<p in:fade="{{duration: 2000, delay: 2000}}" out:fade="{{duration: 500}}" class="text-gray-500">Select below to filter.</p>
-		{#if workflowTaxonomies != []}
-			<div in:fly="{{y: 176, duration: 1500, delay: 350, easing: expoInOut}}" out:fly="{{y: 176}}">
-				<FacetPanel title='Workflow' facets={workflowTaxonomies} bind:groupSelection={workflowSelection} addQuery={addQuery} inputType={'checkbox'} />
-			</div>
-		{/if}
-		{#if techTaxonomies != []}
-			<div in:fly="{{y: 176, duration: 1500, delay: 450, easing: expoInOut}}" out:fly="{{y: 176}}">
-				<FacetPanel title='Tech Stack' facets={techTaxonomies} bind:groupSelection={techSelection} addQuery={addQuery} inputType={'checkbox'} />
-			</div>
-		{/if}
+    <div class="w-64 sm:w-full mr-5 md:mr-0 mb-8">
+        <PageTitle title="Projects" />
+        <p
+            in:fade="{{ duration: 2000, delay: 2000 }}"
+            out:fade="{{ duration: 500 }}"
+            class="text-gray-500"
+        >
+            Select below to filter.
+        </p>
+        {#if workflowTaxonomies != []}
+            <div
+                in:fly="{{ y: 176, duration: 1500, delay: 350, easing: expoInOut }}"
+                out:fly="{{ y: 176 }}"
+            >
+                <FacetPanel
+                    title="Workflow"
+                    facets="{workflowTaxonomies}"
+                    bind:groupSelection="{workflowSelection}"
+                    {addQuery}
+                    inputType="{'checkbox'}"
+                />
+            </div>
+        {/if}
+        {#if techTaxonomies != []}
+            <div
+                in:fly="{{ y: 176, duration: 1500, delay: 450, easing: expoInOut }}"
+                out:fly="{{ y: 176 }}"
+            >
+                <FacetPanel
+                    title="Tech Stack"
+                    facets="{techTaxonomies}"
+                    bind:groupSelection="{techSelection}"
+                    {addQuery}
+                    inputType="{'checkbox'}"
+                />
+            </div>
+        {/if}
 
-		{#if yearArray != []}
-			<div in:fly="{{y: 176, duration: 1500, delay: 550, easing: expoInOut}}" out:fly="{{y: 176}}">
-				<FacetPanel title='Year' facets={yearArray} bind:groupSelection={yearSelection} addQuery={addQuery} inputType='radio' all={true} />
-			</div>
-		{/if}
-	</div>
+        {#if yearArray != []}
+            <div
+                in:fly="{{ y: 176, duration: 1500, delay: 550, easing: expoInOut }}"
+                out:fly="{{ y: 176 }}"
+            >
+                <FacetPanel
+                    title="Year"
+                    facets="{yearArray}"
+                    bind:groupSelection="{yearSelection}"
+                    {addQuery}
+                    inputType="radio"
+                    all="{true}"
+                />
+            </div>
+        {/if}
+    </div>
 
-	<div class="w-full">
-		{#if posts != '' && posts !== undefined && posts !== [] }
-		<ul class="w-full flex row flex-wrap md:flex md:justify-center">
-			{#each posts as post, i}
-				<li class="project-tile inline-block mb-16 mr-16 md:mr-0 overflow-hidden" style="width: 22em;" in:fly="{{y: 176, duration: 1500, delay: (50), easing: expoInOut}}" out:fly="{{y: 176}}">
-					<Link to="projects/{post.slug}" >
-						<div class="thumb-container relative before w-full h-64 overflow-hidden flex justify-center items-center" in:fly="{{y: -256, duration: 1500, delay: (50), easing: expoInOut}}" out:fly="{{y: -256}}">
-							{#if post._embedded['wp:featuredmedia']}
-								<img class="w-full" alt="project" src={post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url} />
-							{:else}
-								<div class="w-full h-full bg-grayWhite"></div>
-							{/if}
-							<p class="absolute text-lg text-white my-3 mx-3" style="left: 0;">{post.title.rendered}</p>
-						</div>
-					</Link>
-				</li>
-			{/each}
-		</ul>
-		{:else}
-		<p>No projects like that :(</p>
-		{/if}
-	</div>
-	
+    <div class="sm:w-full">
+        {#if posts != '' && posts !== undefined && posts !== []}
+            <ul class="w-full flex row flex-wrap md:flex md:justify-center">
+                {#each posts as post, i}
+                    <li
+                        class="project-tile inline-block mb-16 mr-16 md:mr-0
+                        overflow-hidden"
+                        style="width: 22em;"
+                        in:fly="{{ y: 176, duration: 1500, delay: 50, easing: expoInOut }}"
+                        out:fly="{{ y: 176 }}"
+                    >
+                        <Link to="projects/{post.slug}">
+                            <div
+                                class="thumb-container relative before w-full
+                                h-64 overflow-hidden flex justify-center
+                                items-center"
+                                in:fly="{{ y: -256, duration: 1500, delay: 50, easing: expoInOut }}"
+                                out:fly="{{ y: -256 }}"
+                            >
+                                {#if post._embedded['wp:featuredmedia']}
+                                    <img
+                                        class="w-full"
+                                        alt="project"
+                                        src="{post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url}"
+                                    />
+                                {:else}
+                                    <div
+                                        class="w-full h-full bg-grayWhite"
+                                    ></div>
+                                {/if}
+                                <p
+                                    class="absolute text-lg text-white my-3 mx-3"
+                                    style="left: 0;"
+                                >
+                                    {post.title.rendered}
+                                </p>
+                            </div>
+                        </Link>
+                    </li>
+                {/each}
+            </ul>
+        {:else}
+            <p>No projects like that :(</p>
+        {/if}
+    </div>
+
 </div>
 
-
 <style lang="scss">
-	.project-tile{
-		.thumb-container{
-			&:before{
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background: rgba(0,0,0,0.0);
-				transition: 0.25s;
-			}
-			p{
-				opacity: 0;
-				bottom: 0;
-				transition: bottom 0.5s, opacity 0.7s;
-			}
-		}
-		&:hover{
-			.thumb-container{
-				&:before{
-					background: rgba(0,0,0,0.35);
-
-				}
-				p{
-					opacity: 1;
-					bottom: 0.25em;
-
-				}
-			}
-		}
-	}
+    .project-tile {
+        .thumb-container {
+            &:before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0);
+                transition: 0.25s;
+            }
+            p {
+                opacity: 0;
+                bottom: 0;
+                transition: bottom 0.5s, opacity 0.7s;
+            }
+        }
+        &:hover {
+            .thumb-container {
+                &:before {
+                    background: rgba(0, 0, 0, 0.35);
+                }
+                p {
+                    opacity: 1;
+                    bottom: 0.25em;
+                }
+            }
+        }
+    }
 </style>
-

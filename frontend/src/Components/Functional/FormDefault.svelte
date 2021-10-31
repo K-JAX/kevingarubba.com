@@ -3,7 +3,7 @@
     import { afterUpdate } from "svelte";
     import queryString from "query-string";
 
-    const apiURL = process.env.SAPPER_APP_API_URL;
+    const apiURL = process.env.api_url;
     let formData = {};
 
     const postData = async (fID, output, send) => {
@@ -11,7 +11,7 @@
             ".wpcf7-form-control:not(.wpcf7-submit)"
         );
 
-        inputs.forEach((input) => {
+        inputs.forEach(input => {
             formData[input.name] = input.value;
         });
 
@@ -20,13 +20,13 @@
             {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
+                    "Content-Type": "application/x-www-form-urlencoded"
                 },
-                body: queryString.stringify(formData),
+                body: queryString.stringify(formData)
             }
         )
-            .then((resp) => resp.json())
-            .then((resp) => {
+            .then(resp => resp.json())
+            .then(resp => {
                 output[0].classList.remove("wpcf7-display-none");
                 if (resp.status == "validation_failed") {
                     output[0].classList.add("error-message");
@@ -39,7 +39,7 @@
                 }
                 output[0].innerHTML = "<span>" + resp.message + "</span>";
             })
-            .catch((error) => {
+            .catch(error => {
                 console.log("Error:", error);
             });
     };
@@ -52,7 +52,7 @@
             return;
         }
 
-        formContainers.forEach((form) => {
+        formContainers.forEach(form => {
             let formIDString = form.id.split("-")[1],
                 formID = formIDString.slice(1);
 
@@ -61,7 +61,7 @@
 
             if (send != undefined) {
                 send[0].classList.remove("loading");
-                send[0].addEventListener("click", function (event) {
+                send[0].addEventListener("click", function(event) {
                     event.preventDefault();
                     postData(formID, messageBox, send);
                 });
@@ -70,7 +70,7 @@
     };
 
     afterUpdate(async () => {
-        setTimeout(function () {
+        setTimeout(function() {
             formDefault();
         }, 2000);
     });

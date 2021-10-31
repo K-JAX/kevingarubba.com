@@ -13,14 +13,14 @@
     .site-header {
         z-index: 5;
     }
-    .sidebar {
+    :global.sidebar {
         width: 166px;
         .sidebar-svg {
             height: 100%;
             width: 100%;
         }
     }
-    .vert {
+    :global.vert {
         height: 100%;
     }
 
