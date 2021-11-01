@@ -13,6 +13,7 @@
 </script>
 
 <div class="svelte-root flex flex-row" transition:fade="{{ duration: durVal }}">
+    <i class="fab fa-facebook"></i>
     <Page />
 </div>
 
