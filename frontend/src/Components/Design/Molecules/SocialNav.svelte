@@ -29,8 +29,8 @@
                     class="text-gray-400 hover:text-blue duration-500"
                     target="_blank"
                 >
-                    <i class="{`text-3xl fab fa-facebook`}"></i>
-                    <!-- <i class="fab fa-facebook"></i> -->
+                    <i class="{`text-3xl fab ${link.icon}`}"></i>
+
                 </a>
             </li>
         {/each}
