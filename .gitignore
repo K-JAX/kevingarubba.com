@@ -25,6 +25,7 @@ wp-signup.php
 wp-trackback.php
 xmlrpc.php
 
+wordpress/conf/
 wordpress/app/public/wp-content/themes/twenty*
 plugins/
 uploads/

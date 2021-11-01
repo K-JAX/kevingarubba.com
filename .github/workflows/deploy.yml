@@ -38,3 +38,4 @@ jobs:
             cp -R kevingarubba.com/frontend /var/www/
             rm -rf /var/www/wordpress/wp-content/themes/kevingarubba.com-wp-theme
             cp -R kevingarubba.com/wordpress/app/public/wp-content/themes/kevingarubba.com-wp-theme /var/www/wordpress/wp-content/themes
+            pm2 restart all
