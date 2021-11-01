@@ -6,10 +6,9 @@ import { terser } from "rollup-plugin-terser";
 import sveltePreprocess from "svelte-preprocess";
 import replace from "@rollup/plugin-replace";
 import sapperEnv from "sapper-environment";
+import injectProcessEnv from "rollup-plugin-inject-process-env";
 
 const production = !process.env.ROLLUP_WATCH;
-
-// console.log(production);
 
 const preprocess = sveltePreprocess({
     scss: {
@@ -67,10 +66,10 @@ export default {
             // 2 level deep object should be stringify
             process: JSON.stringify({
                 env: {
-                    isProd: production,
-                    api_url: production
-                        ? "https://wp.kevingarubba.com/wp-json"
-                        : "http://localhost:8080/wp-json"
+                    api_url:
+                        process.env.NODE_ENV === "production"
+                            ? "https://wp.kevingarubba.com/wp-json"
+                            : "http://localhost:8080/wp-json"
                 }
             })
         })
