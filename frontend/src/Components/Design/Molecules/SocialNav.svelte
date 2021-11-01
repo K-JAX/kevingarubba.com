@@ -29,6 +29,7 @@
                     class="text-gray-400 hover:text-blue duration-500"
                     target="_blank"
                 >
+                    <span>{link.icon}</span>
                     <i class="{`text-3xl fab ${link.icon}`}"></i>
 
                 </a>
