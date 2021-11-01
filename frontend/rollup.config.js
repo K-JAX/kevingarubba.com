@@ -9,6 +9,8 @@ import sapperEnv from "sapper-environment";
 
 const production = !process.env.ROLLUP_WATCH;
 
+// console.log(production);
+
 const preprocess = sveltePreprocess({
     scss: {
         includePaths: ["src"]
