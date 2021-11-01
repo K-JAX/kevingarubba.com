@@ -24,7 +24,7 @@
     let parsed = {};
     let pageData = {};
     let storedState = "";
-    const apiURL = process.env.SAPPER_APP_API_URL;
+    const apiURL = process.env.api_url;
     let queryParams = queryString.parse(location.search);
     let workflowSelection =
         queryParams.workflow === undefined || queryParams.workflow === ""
