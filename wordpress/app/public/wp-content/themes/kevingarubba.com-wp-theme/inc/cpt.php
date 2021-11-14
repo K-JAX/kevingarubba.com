@@ -4,8 +4,7 @@
  */
 if (!function_exists('register_portofio_pt')) {
 
-    function register_portfolio_pt()
-    {
+    function register_portfolio_pt() {
         $labels = array(
             'name'                  => _x('Projects', 'Post type general name', 'kg'),
             'singular_name'         => _x('Project', 'Post type singular name', 'kg'),
@@ -69,12 +68,11 @@ if (!function_exists('register_portofio_pt')) {
 
 if (!function_exists('register_portfolio_taxonomies')) {
 
-    function register_portfolio_taxonomies()
-    {
+    function register_portfolio_taxonomies() {
         $workflow_labels = array(
-            'name'              => _x('Tech', 'taxonomy general name', 'kg'),
+            'name'              => _x('Workflow', 'taxonomy general name', 'kg'),
             'singular_name'     => _x('Workflow', 'taxonomy singular name', 'kg'),
-            'search_items'      => __('Search Tech', 'kg'),
+            'search_items'      => __('Search Workflows', 'kg'),
             'all_items'         => __('All Workflows', 'kg'),
             'parent_item'       => __('Parent Workflow', 'kg'),
             'parent_item_colon' => __('Parent Workflow:', 'kg'),
@@ -147,8 +145,7 @@ if (!function_exists('register_portfolio_taxonomies')) {
 }
 
 add_action('rest_api_init', 'register_rest_field_for_custom_taxonomy_location');
-function register_rest_field_for_custom_taxonomy_location()
-{
+function register_rest_field_for_custom_taxonomy_location() {
     register_rest_field('project',
         'year',
         array(
@@ -159,7 +156,6 @@ function register_rest_field_for_custom_taxonomy_location()
 }
 
 // Return the year
-function get_date_meta_field($object, $field_name, $request)
-{
+function get_date_meta_field($object, $field_name, $request) {
     return get_the_date('Y', $object['id']);
 }
