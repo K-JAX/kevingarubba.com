@@ -13,8 +13,8 @@
         title = data.title.rendered;
         year = data.date.slice(0, 4);
         image =
-            data._embedded["wp:featuredmedia"][0].media_details.sizes.large
-                .source_url;
+            data._embedded["wp:featuredmedia"][0].media_details.sizes?.large
+                ?.source_url;
         link = data.slug;
         tags = data._embedded["wp:term"][0];
         swatches = data.acf.swatch;
