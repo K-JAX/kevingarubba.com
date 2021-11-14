@@ -42,12 +42,10 @@
         out:fly="{{ y: -1000 }}"
     >
         <!-- <h1>whatevs</h1> -->
-        {#if featuredPosts !== []}
-            <Slideshow
-                data="{featuredPosts}"
-                duration="{8000}"
-                transition="{4000}"
-            />
-        {/if}
+        <Slideshow
+            data="{featuredPosts}"
+            duration="{8000}"
+            transition="{4000}"
+        />
     </div>
 </section>
