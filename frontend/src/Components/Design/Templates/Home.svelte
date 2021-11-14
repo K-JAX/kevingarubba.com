@@ -27,7 +27,12 @@
         if (page[0] !== "") {
             pageData = page[0];
         }
-        featuredPosts = posts.filter(post => post.acf.feature_project == true);
+        console.log(posts[0] !== "");
+        if (posts[0] !== "") {
+            featuredPosts = posts.filter(
+                post => post.acf.feature_project == true
+            );
+        }
     });
 </script>
 
