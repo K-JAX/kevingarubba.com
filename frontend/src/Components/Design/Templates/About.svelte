@@ -88,13 +88,13 @@
                     {pageData.acf.hero_title}
                 </h2>
                 <div class="w-3/4">
-                    <code
-                        class="typed"
+                    <div
+                        class="typed text-gray-700"
                         in:typewriter="{{ speed: 20, delay: -700 }}"
                         out:fly
                     >
                         {pageData.acf.hero_text}
-                    </code>
+                    </div>
                 </div>
                 <ScrollTo delay="{5700}" />
             </div>
@@ -191,7 +191,8 @@
                             />
                         {/if}
                         <figcaption
-                            class="flex items-center font-bold text-xl text-left"
+                            class="flex items-center font-bold text-xl text-left
+                            text-gray-600"
                         >
                             {tech_item.tech_label}
                         </figcaption>
@@ -221,9 +222,9 @@
             <h2 class="text-6xl font-bold leading-none mb-12">
                 {@html pageData.acf.final_message_title}
             </h2>
-            <code>
+            <div class="text-gray-700">
                 {@html pageData.acf.final_message_description}
-            </code>
+            </div>
         </div>
     </section>
 
@@ -232,7 +233,11 @@
             <h2 data-aos="fade-up" data-aos-duration="1500" class="text-5xl">
                 {pageData.acf.call_to_action_section.section_title}
             </h2>
-            <div data-aos="fade-up" data-aos-duration="1500" class="my-16">
+            <div
+                data-aos="fade-up"
+                data-aos-duration="1500"
+                class="my-16 text-gray-700"
+            >
                 {pageData.acf.call_to_action_section.section_description}
             </div>
             <div
