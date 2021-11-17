@@ -28,7 +28,10 @@
             .then(resp => resp.json())
             .then(resp => {
                 output[0].classList.remove("wpcf7-display-none");
-                if (resp.status == "validation_failed") {
+                if (
+                    resp.status == "validation_failed" ||
+                    resp.status == "spam"
+                ) {
                     output[0].classList.add("error-message");
                 } else {
                     output[0].classList.remove("error-message");
