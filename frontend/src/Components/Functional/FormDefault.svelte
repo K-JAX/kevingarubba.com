@@ -38,6 +38,7 @@
                     send[0].disabled = true;
                 }
                 output[0].innerHTML = "<span>" + resp.message + "</span>";
+                console.log(resp);
             })
             .catch(error => {
                 console.log("Error:", error);
