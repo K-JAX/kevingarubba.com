@@ -1,10 +1,12 @@
 <script>
     // modules
+    import { Recaptcha, recaptcha, observer } from "svelte-recaptcha-v2";
     import { afterUpdate } from "svelte";
     import queryString from "query-string";
 
     const apiURL = process.env.api_url;
     let formData = {};
+    let formContainers = [];
 
     const postData = async (fID, output, send) => {
         const inputs = document.querySelectorAll(
@@ -49,7 +51,7 @@
     };
 
     const formDefault = async () => {
-        const formContainers = await document.querySelectorAll(".wpcf7");
+        formContainers = await document.querySelectorAll(".wpcf7");
 
         // bail if there's no form found
         if (formContainers.length === 0) {
@@ -78,4 +80,67 @@
             formDefault();
         }, 2000);
     });
+
+    const googleRecaptchaSiteKey = "6LdFOkAdAAAAAHk2IzedzYkND2NJkTVKcwclltTQ";
+
+    const onCaptchaReady = event => {
+        console.log("recaptcha init has completed.");
+        /*
+     │You can enable your form button here.
+     */
+    };
+
+    const onCaptchaSuccess = event => {
+        userTracker.resolve(event);
+        console.log("token received: " + event.detail.token);
+        /*
+     │If using checkbox method, you can attach your
+     │form logic here, or dispatch your custom event.
+     */
+    };
+
+    const onCaptchaError = event => {
+        console.log("recaptcha init has failed.");
+        /*
+     │Usually due to incorrect siteKey.
+     |Make sure you have the correct siteKey..
+     */
+    };
+
+    const onCaptchaExpire = event => {
+        console.log("recaptcha api has expired");
+        /*
+     │Normally, you wouldn't need to do anything.
+     │Recaptcha should reinit itself automatically.
+     */
+    };
+
+    const onCaptchaOpen = event => {
+        console.log("google decided to challange the user");
+        /*
+     │This fires when the puzzle frame pops.
+     */
+    };
+
+    const onCaptchaClose = event => {
+        console.log("google decided to challange the user");
+        /*
+     │This fires when the puzzle frame closes.
+     │Usually happens when the user clicks outside
+     |the modal frame.
+     */
+    };
 </script>
+
+{#if formContainers.length !== 0}
+    <Recaptcha
+        sitekey="{googleRecaptchaSiteKey}"
+        badge="{'top'}"
+        size="{'invisible'}"
+        on:success="{onCaptchaSuccess}"
+        on:error="{onCaptchaError}"
+        on:expired="{onCaptchaExpire}"
+        on:close="{onCaptchaClose}"
+        on:ready="{onCaptchaReady}"
+    />
+{/if}

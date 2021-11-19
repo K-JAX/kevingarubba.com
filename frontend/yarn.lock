@@ -2665,7 +2665,7 @@ debug@^3.1.0:
   dependencies:
     ms "^2.1.1"
 
-debug@^4.1.0, debug@^4.1.1:
+debug@^4.1.0, debug@^4.1.1, debug@^4.3.2:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.2.tgz#f0a49c18ac8779e31d4a0c6029dfb76873c7428b"
   integrity sha512-mOp8wKcvj7XxC78zLgw/ZA+6TSgkoE2C/ienthhRD298T7UNwAg9diBpLRxC0mOezLl4B0xV7M0cCO6P/O0Xhw==
@@ -7851,6 +7851,13 @@ svelte-preprocess@^3.6.0:
     "@types/sass" "^1.16.0"
     detect-indent "^6.0.0"
     strip-indent "^3.0.0"
+
+svelte-recaptcha-v2@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/svelte-recaptcha-v2/-/svelte-recaptcha-v2-0.0.2.tgz#11f698b6b891ab9566f035d1816dfe29ae7a0b69"
+  integrity sha512-Sx4QuV/AtjxuwOf6C3yih+n3TLlKN+DefYt7wAFR8hjGcAOIAzcb66d0QQdElZJ2H34hvQc1hIaj3AtkoA7G6w==
+  dependencies:
+    debug "^4.3.2"
 
 svelte-routing@^1.4.2:
   version "1.6.0"
