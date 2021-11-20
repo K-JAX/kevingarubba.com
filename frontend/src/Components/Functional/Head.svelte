@@ -67,6 +67,7 @@
     <link rel="icon" href="{fav}" />
     <script src="https://www.google.com/recaptcha/api.js" async defer>
 
+    </script>
     <!-- Site Meta -->
     {#each meta as { name, property, content }}
         {#if name != undefined || name != null || name != ''}
