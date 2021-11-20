@@ -65,6 +65,7 @@
 <svelte:head>
     <title>{title}</title>
     <link rel="icon" href="{fav}" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer>
 
     <!-- Site Meta -->
     {#each meta as { name, property, content }}

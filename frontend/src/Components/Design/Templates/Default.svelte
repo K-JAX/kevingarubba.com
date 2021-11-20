@@ -52,6 +52,8 @@
 
 {#if data != ''}
     <Head pageTagData="{pageData}" />
+
+    </script>
     <section>
         <PageTitle className="my-5" {title} />
         <div
