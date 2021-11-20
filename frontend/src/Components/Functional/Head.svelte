@@ -1,6 +1,8 @@
 <script>
     import { onMount, afterUpdate, tick } from "svelte";
 
+    const key = "6Ldvac0ZAAAAAFmtvwilkJ3MOD4IGou9KjhRglIo";
+
     export let pageTagData = {};
     let fav = "",
         favJson = "",
@@ -65,7 +67,11 @@
 <svelte:head>
     <title>{title}</title>
     <link rel="icon" href="{fav}" />
-    <script src="https://www.google.com/recaptcha/api.js" async defer>
+    <script
+        type="text/javascript"
+        src="https://www.google.com/recaptcha/api.js?render={key}"
+        async
+        defer>
 
     </script>
     <!-- Site Meta -->
