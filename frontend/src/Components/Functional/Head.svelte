@@ -1,7 +1,7 @@
 <script>
     import { onMount, afterUpdate, tick } from "svelte";
 
-    const key = "6Ldvac0ZAAAAAFmtvwilkJ3MOD4IGou9KjhRglIo";
+    const key = "6Lflf0cdAAAAAIvpHI5nX55GJYi7VXGAs2y2iGEO";
 
     export let pageTagData = {};
     let fav = "",
