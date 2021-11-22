@@ -48,6 +48,8 @@
     });
 </script>
 
+<FormDefault />
+
 {#if data != ''}
     <Head pageTagData="{pageData}" />
     <section>
@@ -65,7 +67,6 @@
             </div>
         </div>
     </section>
-    <FormDefault />
 {:else}
     <p>Loading</p>
 {/if}

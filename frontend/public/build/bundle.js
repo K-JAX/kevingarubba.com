@@ -12264,7 +12264,7 @@ var app = (function () {
     		formContainers.forEach(form => {
     			let formIDString = form.id.split("-")[1], formID = formIDString.slice(1);
     			send = form.querySelectorAll(".wpcf7-submit");
-    			send[0].disabled = true;
+    			send[0].disabled = recaptchaPass === false ? true : false;
     			console.log(send);
     			let messageBox = form.querySelectorAll(".wpcf7-response-output");
 
@@ -12299,11 +12299,11 @@ var app = (function () {
          │If using checkbox method, you can attach your
          │form logic here, or dispatch your custom event.
          */
-    		send[0].disabled = false;
-
-    		send[0].classList.remove("disabled");
     		$$invalidate(0, recaptchaPass = true);
-    	};
+
+    		send[0].disabled = false;
+    		send[0].classList.remove("disabled");
+    	}; // console.log(send);
 
     	const onCaptchaError = event => {
     		console.log("recaptcha init has failed.");
@@ -12367,7 +12367,7 @@ var app = (function () {
     	};
     }
 
-    // (51:0) {#if data != ''}
+    // (53:0) {#if data != ''}
     function create_if_block$c(ctx) {
     	let head;
     	let t0;
@@ -12380,8 +12380,6 @@ var app = (function () {
     	let div0_outro;
     	let div1_intro;
     	let div1_outro;
-    	let t2;
-    	let formdefault;
     	let current;
 
     	head = new Head({
@@ -12395,8 +12393,6 @@ var app = (function () {
     			}
     		});
 
-    	formdefault = new FormDefault({});
-
     	return {
     		c() {
     			create_component(head.$$.fragment);
@@ -12406,8 +12402,6 @@ var app = (function () {
     			t1 = space();
     			div1 = element("div");
     			div0 = element("div");
-    			t2 = space();
-    			create_component(formdefault.$$.fragment);
     			attr(div1, "class", "overflow-hidden");
     		},
     		m(target, anchor) {
@@ -12419,8 +12413,6 @@ var app = (function () {
     			append(section, div1);
     			append(div1, div0);
     			div0.innerHTML = /*content*/ ctx[3];
-    			insert(target, t2, anchor);
-    			mount_component(formdefault, target, anchor);
     			current = true;
     		},
     		p(new_ctx, dirty) {
@@ -12463,7 +12455,6 @@ var app = (function () {
     				div1_intro.start();
     			});
 
-    			transition_in(formdefault.$$.fragment, local);
     			current = true;
     		},
     		o(local) {
@@ -12473,7 +12464,6 @@ var app = (function () {
     			div0_outro = create_out_transition(div0, fly, { y: -1256 });
     			if (div1_intro) div1_intro.invalidate();
     			div1_outro = create_out_transition(div1, fly, { y: 1176 });
-    			transition_out(formdefault.$$.fragment, local);
     			current = false;
     		},
     		d(detaching) {
@@ -12483,17 +12473,18 @@ var app = (function () {
     			destroy_component(pagetitle);
     			if (detaching && div0_outro) div0_outro.end();
     			if (detaching && div1_outro) div1_outro.end();
-    			if (detaching) detach(t2);
-    			destroy_component(formdefault, detaching);
     		}
     	};
     }
 
     function create_fragment$y(ctx) {
+    	let formdefault;
+    	let t;
     	let current_block_type_index;
     	let if_block;
     	let if_block_anchor;
     	let current;
+    	formdefault = new FormDefault({});
     	const if_block_creators = [create_if_block$c, create_else_block$4];
     	const if_blocks = [];
 
@@ -12507,10 +12498,14 @@ var app = (function () {
 
     	return {
     		c() {
+    			create_component(formdefault.$$.fragment);
+    			t = space();
     			if_block.c();
     			if_block_anchor = empty();
     		},
     		m(target, anchor) {
+    			mount_component(formdefault, target, anchor);
+    			insert(target, t, anchor);
     			if_blocks[current_block_type_index].m(target, anchor);
     			insert(target, if_block_anchor, anchor);
     			current = true;
@@ -12544,14 +12539,18 @@ var app = (function () {
     		},
     		i(local) {
     			if (current) return;
+    			transition_in(formdefault.$$.fragment, local);
     			transition_in(if_block);
     			current = true;
     		},
     		o(local) {
+    			transition_out(formdefault.$$.fragment, local);
     			transition_out(if_block);
     			current = false;
     		},
     		d(detaching) {
+    			destroy_component(formdefault, detaching);
+    			if (detaching) detach(t);
     			if_blocks[current_block_type_index].d(detaching);
     			if (detaching) detach(if_block_anchor);
     		}

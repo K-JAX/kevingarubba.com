@@ -65,7 +65,7 @@
                 formID = formIDString.slice(1);
 
             send = form.querySelectorAll(".wpcf7-submit");
-            send[0].disabled = true;
+            send[0].disabled = recaptchaPass === false ? true : false;
             console.log(send);
             let messageBox = form.querySelectorAll(".wpcf7-response-output");
 
@@ -100,9 +100,10 @@
      │If using checkbox method, you can attach your
      │form logic here, or dispatch your custom event.
      */
+        recaptchaPass = true;
         send[0].disabled = false;
         send[0].classList.remove("disabled");
-        recaptchaPass = true;
+        // console.log(send);
     };
 
     const onCaptchaError = event => {
