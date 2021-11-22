@@ -23,11 +23,11 @@
             left: 0;
             right: 0;
             width: 6px;
-            box-shadow: -3px 0 6px 0 rgba(0, 0, 0, 0.45);
+            box-shadow: -1px 0 2px 0 rgba(0, 0, 0, 0.25);
             animation: goDown 2s 1.38s forwards;
             @media all and (max-width: 767px) {
                 top: 70px;
-                box-shadow: -3px 0 3px 0 rgba(0, 0, 0, 0.25);
+                box-shadow: -1px 0 2px 0 rgba(0, 0, 0, 0.25);
             }
         }
     }

@@ -4072,8 +4072,8 @@ var app = (function () {
     			div = element("div");
     			t = space();
     			create_component(socialnav.$$.fragment);
-    			attr(div, "class", "sidebar-line absolute mx-auto svelte-88y5zg");
-    			attr(aside, "class", "sidebar fixed flex flex-col content-center justify-center w-32 md:w-20 h-full sm:hidden svelte-88y5zg");
+    			attr(div, "class", "sidebar-line absolute mx-auto svelte-g7jwab");
+    			attr(aside, "class", "sidebar fixed flex flex-col content-center justify-center w-32 md:w-20 h-full sm:hidden svelte-g7jwab");
     		},
     		m(target, anchor) {
     			insert(target, aside, anchor);
@@ -7780,7 +7780,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (19:12) {#if all}
+    // (25:12) {#if all}
     function create_if_block_2$2(ctx) {
     	let li;
     	let label;
@@ -7795,16 +7795,16 @@ var app = (function () {
     			li = element("li");
     			label = element("label");
     			input = element("input");
-    			t = text(" All");
+    			t = text("\n                        All");
     			attr(input, "type", "radio");
     			attr(input, "for", "year");
-    			input.__value = "";
+    			input.__value = "\n                            ";
     			input.value = input.__value;
     			/*$$binding_groups*/ ctx[9][0].push(input);
 
     			attr(label, "class", label_class_value = "" + (null_to_empty(`filter-label ${/*groupSelection*/ ctx[0] == ''
-			? "text-gray-600"
-			: "text-gray-500"}`) + " svelte-95jkel"));
+			? 'text-gray-600'
+			: 'text-gray-500'}`) + " svelte-95jkel"));
     		},
     		m(target, anchor) {
     			insert(target, li, anchor);
@@ -7832,8 +7832,8 @@ var app = (function () {
     			}
 
     			if (dirty & /*groupSelection*/ 1 && label_class_value !== (label_class_value = "" + (null_to_empty(`filter-label ${/*groupSelection*/ ctx[0] == ''
-			? "text-gray-600"
-			: "text-gray-500"}`) + " svelte-95jkel"))) {
+			? 'text-gray-600'
+			: 'text-gray-500'}`) + " svelte-95jkel"))) {
     				attr(label, "class", label_class_value);
     			}
     		},
@@ -7846,7 +7846,7 @@ var app = (function () {
     	};
     }
 
-    // (26:51) 
+    // (56:51) 
     function create_if_block_1$5(ctx) {
     	let label;
     	let input;
@@ -7878,8 +7878,8 @@ var app = (function () {
     			/*$$binding_groups*/ ctx[9][0].push(input);
 
     			attr(label, "class", label_class_value = "" + (null_to_empty(`filter-label ${/*groupSelection*/ ctx[0].includes(/*facet*/ ctx[12])
-			? "text-gray-600"
-			: "text-gray-500"}`) + " svelte-95jkel"));
+			? 'text-gray-600'
+			: 'text-gray-500'}`) + " svelte-95jkel"));
     		},
     		m(target, anchor) {
     			insert(target, label, anchor);
@@ -7918,8 +7918,8 @@ var app = (function () {
     			: /*facet*/ ctx[12]) + "")) set_data(t1, t1_value);
 
     			if (dirty & /*groupSelection, facets*/ 5 && label_class_value !== (label_class_value = "" + (null_to_empty(`filter-label ${/*groupSelection*/ ctx[0].includes(/*facet*/ ctx[12])
-			? "text-gray-600"
-			: "text-gray-500"}`) + " svelte-95jkel"))) {
+			? 'text-gray-600'
+			: 'text-gray-500'}`) + " svelte-95jkel"))) {
     				attr(label, "class", label_class_value);
     			}
     		},
@@ -7932,7 +7932,7 @@ var app = (function () {
     	};
     }
 
-    // (24:20) {#if inputType == 'checkbox'}
+    // (44:20) {#if inputType == 'checkbox'}
     function create_if_block$7(ctx) {
     	let label;
     	let input;
@@ -7964,8 +7964,8 @@ var app = (function () {
     			/*$$binding_groups*/ ctx[9][0].push(input);
 
     			attr(label, "class", label_class_value = "" + (null_to_empty(`filter-label ${/*groupSelection*/ ctx[0].includes(/*facet*/ ctx[12].id)
-			? "text-gray-600"
-			: "text-gray-500"}`) + " svelte-95jkel"));
+			? 'text-gray-600'
+			: 'text-gray-500'}`) + " svelte-95jkel"));
     		},
     		m(target, anchor) {
     			insert(target, label, anchor);
@@ -8004,8 +8004,8 @@ var app = (function () {
     			: /*facet*/ ctx[12]) + "")) set_data(t1, t1_value);
 
     			if (dirty & /*groupSelection, facets*/ 5 && label_class_value !== (label_class_value = "" + (null_to_empty(`filter-label ${/*groupSelection*/ ctx[0].includes(/*facet*/ ctx[12].id)
-			? "text-gray-600"
-			: "text-gray-500"}`) + " svelte-95jkel"))) {
+			? 'text-gray-600'
+			: 'text-gray-500'}`) + " svelte-95jkel"))) {
     				attr(label, "class", label_class_value);
     			}
     		},
@@ -8018,7 +8018,7 @@ var app = (function () {
     	};
     }
 
-    // (22:12) {#each facets as facet}
+    // (42:12) {#each facets as facet}
     function create_each_block$6(ctx) {
     	let li;
     	let t;
@@ -8112,7 +8112,7 @@ var app = (function () {
     			attr(button, "class", button_class_value = "" + (null_to_empty(`dropdown-btn ${/*dropped*/ ctx[6] ? 'dropped' : ''} before transition duration-150 rounded-full absolute bg-gray-400 mt-6 mr-5 p-5 hidden sm:block`) + " svelte-95jkel"));
     			attr(hr, "class", "my-3");
     			attr(form, "class", form_class_value = "" + (null_to_empty(`${/*dropped*/ ctx[6] ? 'dropped' : ''}`) + " svelte-95jkel"));
-    			attr(div, "class", "relative w-full my-4 px-8 py-3 bg-white rounded-lg shadow-xl");
+    			attr(div, "class", "relative w-full my-4 px-6 py-4 bg-white rounded-lg shadow-xl");
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -8781,7 +8781,7 @@ var app = (function () {
     			li = element("li");
     			create_component(link.$$.fragment);
     			t = space();
-    			attr(li, "class", "project-tile inline-block mb-16 mr-16 md:mr-0 overflow-hidden svelte-qvmaqr");
+    			attr(li, "class", "project-tile inline-block mb-8 mr-8 md:mr-0 overflow-hidden svelte-qvmaqr");
     			set_style(li, "width", "22em");
     		},
     		m(target, anchor) {
@@ -9105,8 +9105,8 @@ var app = (function () {
     	const getData = async (query = "") => {
     		let [pageResponse, workflowTaxResponse, techTaxResponse, projResponse] = await Promise.all([
     			fetch(`${apiURL}/wp/v2/pages?slug=projects`),
-    			fetch(`${apiURL}/wp/v2/workflow`),
-    			fetch(`${apiURL}/wp/v2/tech`),
+    			fetch(`${apiURL}/wp/v2/workflow?hide_empty=true`),
+    			fetch(`${apiURL}/wp/v2/tech?hide_empty=true`),
     			fetch(`${apiURL}/wp/v2/project?_embed&${getUnifiedQueryString()}`)
     		]);
 

@@ -68,8 +68,8 @@
             projResponse
         ] = await Promise.all([
             fetch(`${apiURL}/wp/v2/pages?slug=projects`),
-            fetch(`${apiURL}/wp/v2/workflow`),
-            fetch(`${apiURL}/wp/v2/tech`),
+            fetch(`${apiURL}/wp/v2/workflow?hide_empty=true`),
+            fetch(`${apiURL}/wp/v2/tech?hide_empty=true`),
             fetch(`${apiURL}/wp/v2/project?_embed&${getUnifiedQueryString()}`)
         ]);
         let page = await pageResponse.json();
@@ -175,7 +175,7 @@
             <ul class="w-full flex row flex-wrap md:flex md:justify-center">
                 {#each posts as post, i}
                     <li
-                        class="project-tile inline-block mb-16 mr-16 md:mr-0
+                        class="project-tile inline-block mb-8 mr-8 md:mr-0
                         overflow-hidden"
                         style="width: 22em;"
                         in:fly="{{ y: 176, duration: 1500, delay: 50, easing: expoInOut }}"
