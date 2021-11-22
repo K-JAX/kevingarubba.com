@@ -54,7 +54,7 @@ services:
     networks:
       - kg
   node:
-    command: yarn dev
+    command: npm run dev
     container_name: node
     expose:
       - "8081"

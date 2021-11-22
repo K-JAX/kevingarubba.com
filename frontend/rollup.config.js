@@ -6,9 +6,11 @@ import { terser } from "rollup-plugin-terser";
 import sveltePreprocess from "svelte-preprocess";
 import replace from "@rollup/plugin-replace";
 import sapperEnv from "sapper-environment";
-import injectProcessEnv from "rollup-plugin-inject-process-env";
+import { babel } from "@rollup/plugin-babel";
 
 const production = !process.env.ROLLUP_WATCH;
+
+const stuff = "thangz";
 
 const preprocess = sveltePreprocess({
     scss: {
@@ -36,7 +38,6 @@ export default {
                 css.write("bundle.css");
             }
         }),
-
         // If you have external dependencies installed from
         // npm, you'll most likely need these plugins. In
         // some cases you'll need additional configuration -
@@ -63,16 +64,29 @@ export default {
         replace({
             ...sapperEnv(),
             preventAssignment: true,
+            // NODE_ENV:
+            //     process.env.NODE_ENV === "production"
+            //         ? "https://wp.kevingarubba.com/wp-json"
+            //         : "http://localhost:8080/wp-json"
             // 2 level deep object should be stringify
-            process: JSON.stringify({
-                env: {
-                    api_url:
-                        process.env.NODE_ENV === "production"
-                            ? "https://wp.kevingarubba.com/wp-json"
-                            : "http://localhost:8080/wp-json"
-                }
-            })
-        })
+            "process.env.api_url": JSON.stringify(
+                process.env.NODE_ENV === "production"
+                    ? "https://wp.kevingarubba.com/wp-json"
+                    : "http://localhost:8080/wp-json"
+            )
+
+            // 2 level deep object should be stringify
+
+            // process: JSON.stringify({
+            //     env: {
+            //         api_url:
+            //             process.env.NODE_ENV === "production"
+            //                 ? "https://wp.kevingarubba.com/wp-json"
+            //                 : "http://localhost:8080/wp-json"
+            //     }
+            // })
+        }),
+        babel({ babelHelpers: "bundled" })
     ],
     watch: {
         clearScreen: false

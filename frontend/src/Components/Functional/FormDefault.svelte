@@ -2,10 +2,13 @@
     // modules
     import { afterUpdate } from "svelte";
     import queryString from "query-string";
+    import { Recaptcha, recaptcha, observer } from "svelte-recaptcha-v2";
 
     const apiURL = process.env.api_url;
     let formData = {};
     let formContainers = [];
+    let send;
+    let recaptchaPass = false;
 
     const postData = async (fID, output, send) => {
         const inputs = document.querySelectorAll(
@@ -61,11 +64,13 @@
             let formIDString = form.id.split("-")[1],
                 formID = formIDString.slice(1);
 
-            let send = form.querySelectorAll(".wpcf7-submit");
+            send = form.querySelectorAll(".wpcf7-submit");
+            send[0].disabled = true;
+            console.log(send);
             let messageBox = form.querySelectorAll(".wpcf7-response-output");
 
             if (send != undefined) {
-                send[0].classList.remove("loading");
+                // send[0].classList.remove("disabled");
                 send[0].addEventListener("click", function(event) {
                     event.preventDefault();
                     postData(formID, messageBox, send);
@@ -79,4 +84,70 @@
             formDefault();
         }, 2000);
     });
+
+    const googleRecaptchaSiteKey = "6LdFOkAdAAAAAHk2IzedzYkND2NJkTVKcwclltTQ";
+    const onCaptchaReady = event => {
+        console.log("recaptcha init has completed.");
+
+        /*
+     │You can enable your form button here.
+     */
+    };
+
+    const onCaptchaSuccess = event => {
+        // console.log("token received: " + event.detail.token);
+        /*
+     │If using checkbox method, you can attach your
+     │form logic here, or dispatch your custom event.
+     */
+        send[0].disabled = false;
+        send[0].classList.remove("disabled");
+        recaptchaPass = true;
+    };
+
+    const onCaptchaError = event => {
+        console.log("recaptcha init has failed.");
+        /*
+     │Usually due to incorrect siteKey.
+     |Make sure you have the correct siteKey..
+     */
+    };
+
+    const onCaptchaExpire = event => {
+        console.log("recaptcha api has expired");
+        recaptchaPass = false;
+        /*
+     │Normally, you wouldn't need to do anything.
+     │Recaptcha should reinit itself automatically.
+     */
+    };
+
+    const onCaptchaOpen = event => {
+        console.log("google decided to challange the user");
+        /*
+     │This fires when the puzzle frame pops.
+     */
+    };
+
+    const onCaptchaClose = event => {
+        console.log("google decided to challange the user");
+        /*
+     │This fires when the puzzle frame closes.
+     │Usually happens when the user clicks outside
+     |the modal frame.
+     */
+    };
 </script>
+
+<div class="{recaptchaPass ? 'hidden' : 'block'}">
+    <Recaptcha
+        sitekey="{googleRecaptchaSiteKey}"
+        badge="{'inline'}"
+        size="{'normal'}"
+        on:success="{onCaptchaSuccess}"
+        on:error="{onCaptchaError}"
+        on:expired="{onCaptchaExpire}"
+        on:close="{onCaptchaClose}"
+        on:ready="{onCaptchaReady}"
+    />
+</div>

@@ -4,11 +4,11 @@ RUN apk update && apk add bash && apk add curl
 
 WORKDIR /home/node/app
 
-COPY --chown=node:node package.json .
+COPY --chown=node:node package*.json ./
 
 RUN chown -R node:node /home/node/app
 
-RUN yarn install
+RUN npm run preinstall && npm i
 
 COPY --chown=node:node ./ .
 
