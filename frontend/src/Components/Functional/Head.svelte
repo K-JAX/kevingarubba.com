@@ -67,6 +67,21 @@
 <svelte:head>
     <title>{title}</title>
     <link rel="icon" href="{fav}" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=UA-52438733-1">
+
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+
+        gtag("config", "UA-52438733-1");
+    </script>
     <!-- Site Meta -->
     {#each meta as { name, property, content }}
         {#if name != undefined || name != null || name != ''}
