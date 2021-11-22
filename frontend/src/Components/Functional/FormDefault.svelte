@@ -152,6 +152,5 @@
             on:close="{onCaptchaClose}"
             on:ready="{onCaptchaReady}"
         />
-        <div class="bg-cyan"></div>
     </div>
 {/if}
