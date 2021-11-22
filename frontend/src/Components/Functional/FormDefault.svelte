@@ -140,15 +140,17 @@
     };
 </script>
 
-<div class="{recaptchaPass ? 'hidden' : 'block'}">
-    <Recaptcha
-        sitekey="{googleRecaptchaSiteKey}"
-        badge="{'inline'}"
-        size="{'normal'}"
-        on:success="{onCaptchaSuccess}"
-        on:error="{onCaptchaError}"
-        on:expired="{onCaptchaExpire}"
-        on:close="{onCaptchaClose}"
-        on:ready="{onCaptchaReady}"
-    />
-</div>
+{#if formContainers.length !== 0}
+    <div class="{recaptchaPass ? 'hidden' : 'block'}">
+        <Recaptcha
+            sitekey="{googleRecaptchaSiteKey}"
+            badge="{'inline'}"
+            size="{'normal'}"
+            on:success="{onCaptchaSuccess}"
+            on:error="{onCaptchaError}"
+            on:expired="{onCaptchaExpire}"
+            on:close="{onCaptchaClose}"
+            on:ready="{onCaptchaReady}"
+        />
+    </div>
+{/if}
