@@ -70,10 +70,10 @@ module.exports = {
                 type: "radial",
                 colors: ["circle", "#CCC", "#000"]
             }
-        }),
-        purge: {
-            safelist: ["bg-cyan"]
-        }
+        })
+    },
+    purge: {
+        safelist: ["bg-cyan"]
     },
     variants: {
         gradients: ["responsive", "hover"],
