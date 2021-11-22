@@ -72,9 +72,7 @@ module.exports = {
             }
         })
     },
-    purge: {
-        safelist: ["bg-cyan"]
-    },
+    purge: false,
     variants: {
         gradients: ["responsive", "hover"],
         boxShadow: ["hover"]
