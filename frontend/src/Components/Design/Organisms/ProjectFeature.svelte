@@ -12,7 +12,6 @@
     const defineProps = () => {
         title = data.title.rendered;
         year = data.date.slice(0, 4);
-        console.log(data._embedded["wp:featuredmedia"][0].media_details.sizes);
 
         image =
             data._embedded["wp:featuredmedia"][0].media_details.sizes.large
