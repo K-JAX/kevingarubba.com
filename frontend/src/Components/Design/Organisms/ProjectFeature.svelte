@@ -29,13 +29,19 @@
 <div
     class="project-feature flex flex-row flex-grow-0 flex-shrink-0 justify-start
     content-end w-full h-full shadow-lg"
-    style="{`background: url(${image}) no-repeat center/contain;`}"
+    style="{`background-image: url(${image});`}"
 >
     <DescriptionPanel {title} {year} {tags} {swatches} {link} />
 </div>
 
-<style>
+<style lang="scss">
     .project-feature {
         flex: 1;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        @media all and (max-width: 767px) {
+            background-position: top center;
+        }
     }
 </style>

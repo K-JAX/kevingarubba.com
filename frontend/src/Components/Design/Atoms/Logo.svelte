@@ -10,7 +10,7 @@
 
 {#if ready}
     <svg
-        class="svg-logo -mt-2 w-32 h-32 md:w-20 md:h-20"
+        class="svg-logo -mt-2 w-32 h-32 md:w-20 md:h-20 flex-shrink-0"
         viewBox="0 0 1000 1000"
     >
 

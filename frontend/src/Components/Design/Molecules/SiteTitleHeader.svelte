@@ -16,9 +16,12 @@
     </Link>
 </Router>
 
-<style>
+<style lang="scss">
     .logo-container {
         height: 140px;
         /* overflow: hidden; */
+        @media all and (max-width: 767px) {
+            height: 100%;
+        }
     }
 </style>

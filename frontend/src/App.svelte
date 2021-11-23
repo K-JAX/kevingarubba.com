@@ -7,7 +7,10 @@
     import { Recaptcha, recaptcha, observer } from "svelte-recaptcha-v2";
 </script>
 
-<div class="svelte-root flex flex-row" transition:fade="{{ duration: durVal }}">
+<div
+    class="svelte-root relative flex flex-col"
+    transition:fade="{{ duration: durVal }}"
+>
     <Page />
 </div>
 

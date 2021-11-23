@@ -16,9 +16,9 @@
 </script>
 
 <nav
-    class="{`${loadState ? 'loaded' : ''} social-nav relative w-8 self-center mr-2`}"
+    class="{`${loadState ? 'loaded' : ''} social-nav relative w-8 md:w-full self-center mr-2`}"
 >
-    <ul>
+    <ul class="text-center">
         {#each links as link, i}
             <li
                 class="my-6 py-2 text-center"
@@ -46,6 +46,11 @@
             opacity: 0;
             transform: scale(0);
             transition: 0.25s;
+            @media all and (max-width: 767px) {
+                display: inline-block;
+                width: initial;
+                margin: 0 1.5em;
+            }
         }
         &.loaded {
             li {
