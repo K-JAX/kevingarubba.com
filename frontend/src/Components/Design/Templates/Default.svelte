@@ -67,5 +67,6 @@
     </section>
     <FormDefault />
 {:else}
-    <p>Loading</p>
+    <PageTitle className="my-5" title="404 - Not Found" />
+    <p>Can't find that page :(</p>
 {/if}

@@ -12,7 +12,7 @@
 </script>
 
 <div
-    class="description-panel mt-auto md:mr-0 md:mx-0 mx-32 -mb-5 md:-mb-10 px-8
+    class="description-panel mt-auto md:mr-0 md:mx-0 mx-32 -mb-5 md:-mb-12 px-8
     py-3 sm:py-8 bg-white rounded-lg shadow-2xl"
 >
     <h4 class="text-sm tracking-wider bold uppercase">
@@ -69,7 +69,7 @@
         @media all and (max-width: 767px) {
             width: 99%;
             border-radius: 70px 70px 0 0;
-            margin-left: 0.5em;
+            margin-left: 0em;
         }
     }
 </style>

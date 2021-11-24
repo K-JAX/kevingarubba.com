@@ -117,17 +117,17 @@
         opacity: 0;
         position: absolute;
         top: 0;
-        left: 30px;
+        left: 50px;
     }
 
     .currentSlide {
         z-index: 1;
         opacity: 1;
-        left: -0.5em;
+        left: 0em;
     }
 
     .prevSlide {
-        left: 30px;
+        left: 50px;
         top: 10px;
         opacity: 0;
         transition: opacity 1s, top 1s, left 0s 1s !important;
