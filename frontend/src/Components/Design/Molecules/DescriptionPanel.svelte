@@ -12,8 +12,8 @@
 </script>
 
 <div
-    class="description-panel mt-auto md:mr-0 md:mx-0 mx-32 -mb-5 px-8 py-3
-    sm:py-8 bg-white rounded-lg shadow-2xl"
+    class="description-panel mt-auto md:mr-0 md:mx-0 mx-32 -mb-5 md:-mb-8 px-8
+    py-3 sm:py-8 bg-white rounded-lg shadow-2xl"
 >
     <h4 class="text-sm tracking-wider bold uppercase">
         <SVGText
