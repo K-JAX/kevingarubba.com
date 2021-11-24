@@ -81,7 +81,7 @@
 
 <style lang="scss">
     .slideshow-container {
-        height: 70vh;
+        height: 74vh;
     }
 
     .slide-control {
