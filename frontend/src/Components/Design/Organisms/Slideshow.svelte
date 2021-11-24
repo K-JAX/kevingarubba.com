@@ -123,7 +123,7 @@
     .currentSlide {
         z-index: 1;
         opacity: 1;
-        left: -1em;
+        left: -0.5em;
     }
 
     .prevSlide {

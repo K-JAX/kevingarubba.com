@@ -69,7 +69,7 @@
         @media all and (max-width: 767px) {
             width: 99%;
             border-radius: 70px 70px 0 0;
-            margin-left: 1em;
+            margin-left: 0.5em;
         }
     }
 </style>
