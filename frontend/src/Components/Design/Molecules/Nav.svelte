@@ -43,7 +43,7 @@
     <nav
         class="{`site-nav ${className} fixed w-full h-full flex content-left justify-start`}"
     >
-        <ul class="flex flex-col text-left mt-32 ml-32 justify-start">
+        <ul class="flex flex-col text-left mt-32 ml-32 md:ml-2 justify-start">
             {#each links as link, i}
                 <li
                     class="nav-item after list-none text-5xl my-2"
@@ -75,6 +75,9 @@
         right: 100%;
         opacity: 0;
         transition: opacity 1.5s, right 0s 1.5s;
+        @media all and (max-width: 767px) {
+            transition: opacity 0.5s;
+        }
         background: rgba(255, 255, 255, 0.9);
         .nav-item {
             position: relative;
@@ -94,6 +97,9 @@
             .link-text {
                 opacity: 0;
                 transition: 0.5s;
+                @media all and (max-width: 767px) {
+                    transition: none;
+                }
             }
         }
     }
@@ -101,6 +107,9 @@
     .site-nav.active {
         right: 0;
         transition: opacity 1.5s, right 0s 0s;
+        @media all and (max-width: 767px) {
+            transition: opacity 0.5s;
+        }
         opacity: 1;
         z-index: 5;
 
@@ -108,6 +117,9 @@
             &:after {
                 animation: fillOut 0.85s;
                 animation-delay: inherit;
+                @media all and (max-width: 767px) {
+                    animation: none;
+                }
             }
             .link-text {
                 opacity: 1;

@@ -27,8 +27,11 @@
     {#if tags}
         <ul class="inline-block">
             {#each tags as tag}
-                <Link to="{`projects/?workflow=${tag.id}&tech=&year=`}">
-                    <li class="inline-block mr-1">
+                <Link
+                    class="no-underline"
+                    to="{`projects/?workflow=${tag.id}&tech=&year=`}"
+                >
+                    <li class="inline-block mr-1 mb-1">
                         <Button priority="tag">#{tag.name}</Button>
                     </li>
                 </Link>

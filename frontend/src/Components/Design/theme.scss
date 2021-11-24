@@ -172,3 +172,10 @@ label {
         }
     }
 }
+
+// Turning off rellax on smaller screens
+@media (max-width: 767px) {
+    .rellax {
+        transform: translate3d(0, 0, 0) !important;
+    }
+}

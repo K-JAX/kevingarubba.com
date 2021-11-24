@@ -120,7 +120,7 @@
         <p
             in:fade="{{ duration: 2000, delay: 2000 }}"
             out:fade="{{ duration: 500 }}"
-            class="text-gray-500"
+            class="text-gray-500 ml-0 md:ml-6"
         >
             Select below to filter.
         </p>
@@ -172,20 +172,19 @@
 
     <div class="sm:w-full">
         {#if posts != '' && posts !== undefined && posts !== []}
-            <ul class="w-full flex row flex-wrap md:flex md:justify-center">
+            <ul class="w-full flex row flex-wrap md:flex md:justify-around">
                 {#each posts as post, i}
                     <li
                         class="project-tile inline-block mb-8 mr-8 md:mr-0
                         overflow-hidden"
-                        style="width: 22em;"
                         in:fly="{{ y: 176, duration: 1500, delay: 50, easing: expoInOut }}"
                         out:fly="{{ y: 176 }}"
                     >
                         <Link to="projects/{post.slug}">
                             <div
                                 class="thumb-container relative before w-full
-                                h-64 overflow-hidden flex justify-center
-                                items-center"
+                                h-64 md:h-auto overflow-hidden flex
+                                justify-center items-center"
                                 in:fly="{{ y: -256, duration: 1500, delay: 50, easing: expoInOut }}"
                                 out:fly="{{ y: -256 }}"
                             >
@@ -220,6 +219,10 @@
 
 <style lang="scss">
     .project-tile {
+        width: 22em;
+        @media all and (max-width: 767px) {
+            width: 12em;
+        }
         .thumb-container {
             &:before {
                 position: absolute;

@@ -74,7 +74,7 @@
     ></div>
     <div class="flex md:flex-col-reverse">
         <div
-            class="md:w-full md:mt-16 w-1/2 pr-12 rellax"
+            class="md:w-full md:ml-8 md:mt-16 w-1/2 pr-12 md:pr-8 rellax"
             data-rellax-speed="7"
             data-rellax-xs-speed="1"
             data-rellax-mobile-speed="1"
@@ -89,7 +89,7 @@
             />
         </div>
     </div>
-    <div class="project-content">
+    <div class="project-content md:px-8">
         {@html content}
     </div>
     <div class="flex justify-end" data-aos="fade-left" data-aos-delay="600">

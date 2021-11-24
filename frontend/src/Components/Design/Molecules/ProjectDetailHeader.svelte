@@ -42,7 +42,7 @@
 </Link>
 <PageTitle
     title="{brandName}"
-    containerClass="-ml-10 text-6xl"
+    containerClass="-ml-10 md:-ml-16 text-6xl"
     className="text-6xl lg:text-3xl flex tracking-widest overflow-hidden"
     height="192"
 />

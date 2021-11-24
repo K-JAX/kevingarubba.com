@@ -20,6 +20,7 @@
     let storedState = "";
     let slug = "about";
     let y;
+    let scrollMultiplier = 1;
 
     const getData = async () => {
         const res = await fetch(`${apiURL}/wp/v2/pages/?slug=about`);
@@ -31,8 +32,13 @@
         storedState = slug;
     };
 
+    const mobileY = () => {
+        scrollMultiplier = window.innerWidth < 767 ? 0.25 : 1;
+    };
+
     onMount(async () => {
         getData();
+        mobileY();
     });
 
     let visible = false;
@@ -78,7 +84,7 @@
         <div class="flex sm:flex-col-reverse flex-row">
             <div
                 class="sm:w-full w-3/5 mt-32 md:mt-4 mx-2"
-                style="z-index: 4; transform: translate(0,{Math.min(100, y / 5)}px);"
+                style="z-index: 4; transform: translate(0,{Math.min(100, (y * scrollMultiplier) / 5)}px);"
             >
                 <h2
                     class="text-6xl font-bold"
@@ -102,7 +108,7 @@
                 in:fly="{{ x: 281, duration: 1500, delay: 1000 }}"
                 out:fly="{{ x: 281, duration: 1500 }}"
                 class="sm:w-3/4 w-2/5 md:mt-4 mt-8"
-                style="overflow: hidden; transform: translate(0,{Math.min(24, y / 35)}px);"
+                style="overflow: hidden; transform: translate(0,{Math.min(24, (y * scrollMultiplier) / 35)}px);"
             >
                 {#if pageData.acf.hero_image !== undefined}
                     <!-- <img data-aos="fade-left" data-aos-duration="1500" width=562 src={pageData.acf.hero_image.sizes.medium_large} alt={pageData.acf.hero_image.alt} /> -->
