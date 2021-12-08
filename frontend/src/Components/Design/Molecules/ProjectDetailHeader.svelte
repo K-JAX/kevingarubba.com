@@ -54,7 +54,7 @@
     >
         {#if workflows !== []}
             <div class="mr-10">
-                <dt>Worflow</dt>
+                <dt>Workflow</dt>
                 {#each workflows as workflow}
                     <dd>{workflow.name}</dd>
                 {/each}
