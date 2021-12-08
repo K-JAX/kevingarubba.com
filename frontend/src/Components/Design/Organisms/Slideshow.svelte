@@ -10,7 +10,7 @@
     export let data;
     export let duration = 4000;
     export let transition = 2000;
-    let index = 1;
+    let index = 0;
     let timer;
     let currentSlide, prevSlide;
 
@@ -25,17 +25,16 @@
     };
 
     const incrementSlide = n => {
-        if (data.length > 1) {
+        index += n;
+        if (data.length > 0) {
             prevSlide = index - 1;
         }
         if (index >= data.length) {
-            index = 1;
-        } else if (index <= 1) {
-            index = data.length;
-        } else {
-            index += n;
+            index = 0;
+        } else if (index < 0) {
+            index = data.length - 1;
         }
-        currentSlide = index - 1;
+        currentSlide = index;
     };
 
     const showSlides = () => {
