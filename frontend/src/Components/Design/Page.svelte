@@ -18,7 +18,7 @@
     let template;
 </script>
 
-<Header />
+<Header {template} />
 <Sidebar />
 <!-- <main transition:fly={{y: 50, duration: 2000}} class={`site-main container mx-auto md:mt-24 mt-48 pl-3 pr-16`}> -->
 <main
@@ -42,7 +42,7 @@
         <Route component="{NotFound}" />
     </Router>
 </main>
-<Footer {template} />
+<Footer />
 
 <style>
     .site-main {
