@@ -101,7 +101,7 @@
             <div class="flex md:justify-center md:w-full">
                 <Link to="{`projects/`}">
                     <Button priority="primary" className="mr-5">
-                        See all
+                        See all projects
                         {@html arrow}
                     </Button>
                 </Link>
