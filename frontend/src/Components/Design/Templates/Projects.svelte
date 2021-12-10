@@ -211,7 +211,7 @@
                 {/each}
             </ul>
         {:else}
-            <p>No projects like that :(</p>
+            <p></p>
         {/if}
     </div>
 
