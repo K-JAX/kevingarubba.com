@@ -1,6 +1,7 @@
 <script>
     // modules
     import { onMount, afterUpdate } from "svelte";
+    import { Link } from "svelte-routing";
     import { fade, fly } from "svelte/transition";
     import { expoInOut } from "svelte/easing";
 
@@ -252,15 +253,17 @@
                 class="flex align-center justify-center"
             >
                 {#each pageData.acf.call_to_action_section.call_to_action_buttons as cta_button}
-                    <Button
-                        priority="{cta_button.is_primary ? 'primary' : 'tertiary'}"
-                        className="mx-5"
-                    >
-                        {cta_button.cta_link.title}
-                        <span>
-                            {@html cta_button.is_primary ? '<i class="ml-5 fas fa-chevron-circle-right">' : ''}
-                        </span>
-                    </Button>
+                    <Link to="{cta_button.cta_link.url}">
+                        <Button
+                            priority="{cta_button.is_primary ? 'primary' : 'tertiary'}"
+                            className="mx-5"
+                        >
+                            {cta_button.cta_link.title}
+                            <span>
+                                {@html cta_button.is_primary ? '<i class="ml-5 fas fa-chevron-circle-right">' : ''}
+                            </span>
+                        </Button>
+                    </Link>
                 {/each}
             </div>
         </section>
