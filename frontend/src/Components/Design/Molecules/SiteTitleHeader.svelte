@@ -8,7 +8,7 @@
 </script>
 
 <Router>
-    <Link to="/">
+    <Link to="/" class="no-underline">
         <div class="logo-container flex flex-row md:content-start">
             <Logo />
             <SiteTitle {title} {description} />
