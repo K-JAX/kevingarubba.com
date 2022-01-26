@@ -219,7 +219,8 @@
 
 <style lang="scss">
     .project-tile {
-        width: 22em;
+        width: 14em;
+        box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.25);
         @media all and (max-width: 767px) {
             width: 12em;
         }
