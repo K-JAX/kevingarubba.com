@@ -1,0 +1,17 @@
+FROM node:lts-alpine
+
+EXPOSE 5173
+
+RUN apk update && apk add bash && apk add curl
+
+WORKDIR /home/node/app
+
+COPY --chown=node:node package*.json ./
+
+RUN chown -R node:node /home/node/app
+
+RUN npm i
+
+COPY --chown=node:node ./ .
+
+USER node
