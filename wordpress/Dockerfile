@@ -1,4 +1,8 @@
 FROM wordpress:latest
 
-RUN apt-get update; \
-	apt-get install -yq vim
+USER root
+
+RUN ["apt-get", "update"]
+RUN ["apt-get", "install", "-y", "vim"]
+
+EXPOSE 8080

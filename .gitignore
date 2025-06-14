@@ -1,6 +1,7 @@
 # frontend ignore
 node_modules/
-frontend/public/build/
+# frontend/public/build/
+frontend-legacy/public/build/
 .DS_Store
 data/
 
